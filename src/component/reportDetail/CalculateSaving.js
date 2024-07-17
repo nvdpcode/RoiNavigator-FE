@@ -14,7 +14,7 @@ const Item = styled(Paper)(({ theme }) => ({
   borderRadius: "20px 20px 1px 1px",
   color: theme.palette.text.secondary,
 }));
-function CalculateSaving() {
+function CalculateSaving({setToaster}) {
   const [activeTab, setActiveTab] = React.useState(0);
   const [calculationApiData, setcalculation] = useState(calculationdata)
   const [isLoading, setIsLoading] = useState(true)
@@ -28,12 +28,20 @@ function CalculateSaving() {
 
   const apiCallfunction = async () => {
     let roiId =  JSON.parse(localStorage.getItem("roiId"))
+    try{
     const calData = await Axois.post("http://localhost:8000/api/product/calculation", {roiId:roiId})
     if (calData.status == 200) {
       const savingsData = await Axois.post("http://localhost:8000/api/product/calcDetails", {roiId:roiId})
       setcalculation(savingsData.data)
       setIsLoading(false)
     }
+  }catch(e){
+    setToaster({
+      open:true,
+      massage: e?.response?.data?.error ?? "error",
+      msgSaverity:"error"
+    }) 
+  }
   }
   const handleClick = (item, index) => {
     setActiveTab(index);

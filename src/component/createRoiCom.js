@@ -308,7 +308,6 @@ function CreateRoiCom() {
   const callRoiApis = async (url, data) => {
     try{
     const apisColletion = await Axois.post(url, data)
-      console.log(apisColletion,"apisColletion")
     if(apisColletion.status==200){
       if(steps==0){
         localStorage.setItem("roiId",JSON.stringify(apisColletion.data.roiId))
@@ -570,7 +569,7 @@ function CreateRoiCom() {
             }
             {
               steps == 4 &&
-              <CalculateSaving />
+              <CalculateSaving setToaster={setToaster} />
             }
   
         {
