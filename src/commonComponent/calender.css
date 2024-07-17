@@ -1,0 +1,17 @@
+
+.react-datepicker__input-container input {
+  margin-top: 7px;
+  width: 310px;
+  height: 23px;
+  cursor: pointer;
+}
+
+.react-datepicker__calendar-icon{
+ display: "flex";
+ z-index: 999;
+ margin-left: 288px;
+ cursor: pointer;
+ width: 30px;
+ height: 18px;
+ margin-top: 9px;
+}

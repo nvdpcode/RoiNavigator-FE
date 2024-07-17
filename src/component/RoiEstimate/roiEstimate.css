@@ -1,0 +1,18 @@
+.css-md26zr-MuiInputBase-root-MuiOutlinedInput-root{
+  height: 20;
+}
+
+.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-fullWidth.MuiInputBase-formControl.css-md26zr-MuiInputBase-root-MuiOutlinedInput-root{
+  height: "20px" !important;
+}
+
+.Accordian{
+   background-color:red;
+}
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation0.MuiAccordion-root.css-1fderfv-MuiPaper-root-MuiAccordion-root{
+  border:"1px solid white" !important
+}
+.css-1fderfv-MuiPaper-root-MuiAccordion-root{
+  border:"1px solid white" !important 
+}

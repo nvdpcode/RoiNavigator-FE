@@ -1,0 +1,35 @@
+.MuiDrawer-root.MuiDrawer-modal.MuiModal-root.css-1u2w381-MuiModal-root-MuiDrawer-root{
+  top:70px;
+  width: 45px;
+  display: flex;
+  z-index: 999;
+}
+
+.MuiBackdrop-root.MuiModal-backdrop.css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop{
+  top: 70px;
+  width: 45px;
+}
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation16.MuiDrawer-paper.MuiDrawer-paperAnchorLeft.css-4t3x6l-MuiPaper-root-MuiDrawer-paper{
+  top:70px; 
+  width: 45px;
+  z-index: 999;
+}
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation16.MuiDrawer-paper.MuiDrawer-paperAnchorLeft.css-4t3x6l-MuiPaper-root-MuiDrawer-paper:hover{
+  top:70px; 
+  width: 45px;
+}
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation16.MuiDrawer-paper.MuiDrawer-paperAnchorLeft.css-4t3x6l-MuiPaper-root-MuiDrawer-paper:hover{
+  top:70px; 
+  width:250px;
+  transition: width 0.40s ease 0.5s;
+}
+
+.MuiBackdrop-root.MuiModal-backdrop.css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop:hover{
+  top: 70px;
+  width:250px;
+  transition: width 0.40s ease 0.5s;
+}
+input#fullWidth{
+  height: "5px" !important;
+}
