@@ -5,6 +5,7 @@ import Roisaving from './roisaving';
 import { calculationdata } from './calculation';
 import Axois from 'axios'
 import Genrateroi from './genrateRoi';
+import { dataNotFoundImage } from '../../assets/assets';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -108,7 +109,9 @@ function CalculateSaving({setToaster}) {
     <>
       {
         isLoading ?
-          <CircularProgress />
+          <div style={{display:"flex",justifyContent:"center",marginTop:"64px"}}>
+            <img src={dataNotFoundImage} width="92px"></img>
+          </div>
           :
           <div style={{ display: "flex", alignItems: "center", flexDirection: "column", gap: "12px", width: "100%", marginTop: "50px" }}>
             <div style={{ display: 'flex', flexDirection: "row", gap: "10px", width: "80%" }}>
