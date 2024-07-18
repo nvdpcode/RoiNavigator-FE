@@ -22,6 +22,7 @@ const rows = [
   createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
 
 ];
+
 function Roisaving({savings}) {
     return (
       <Box style={{ display:"flex",width:'80%',border:"1px solid rgb(247 247 247)"}}>
@@ -29,8 +30,11 @@ function Roisaving({savings}) {
         <Table sx={{ minWidth: 500 }} aria-label="simple table">
           <TableHead>
             <TableRow style={{backgroundColor:"#efefef"}}>
-              <TableCell align="center"  sx={{ borderBottom: 'none',fontSize:"11px",padding:"6px" }}>L1 Desktop Support</TableCell>
-              <TableCell align="center" sx={{ borderBottom: 'none',fontSize:"11px",padding:"6px" }}>Saving Per Annum</TableCell>
+              {
+                savings.name.map((title)=>(
+                  <TableCell align="center" sx={{ borderBottom: 'none',minWidth:"92px",fontSize:"11px",padding:"6px",minWidth:"92px" }}>{title}</TableCell>
+                ))
+              }
             </TableRow>
           </TableHead>
           <TableBody>
@@ -40,7 +44,7 @@ function Roisaving({savings}) {
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                   {row.date && (
-                  <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px", padding: "6px" }}>{row.date}</TableCell>
+                  <TableCell align="center"  sx={{ borderBottom: 'none', fontSize: "11px", padding: "6px" }}>{row.date}</TableCell>
                 )}
                  {(row.savingsPerAnnum || row.savingsPerAnnum==0) && (
                   <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px", padding: "6px" }}>{row.savingsPerAnnum}</TableCell>

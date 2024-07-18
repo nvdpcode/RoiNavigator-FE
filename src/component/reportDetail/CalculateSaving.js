@@ -102,7 +102,7 @@ function CalculateSaving({setToaster}) {
     }
   ]
   const savingsFormat = Object.keys(savings).map(key => ({
-     name:Object.keys(key),
+     name:[key,"Saving Per Annum"],
      data: savings[key]
   }));
   return (
