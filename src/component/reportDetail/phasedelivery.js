@@ -14,7 +14,12 @@ function PhaseDeleviry({PhaseDel, selectedOptions,handleChange,handleChangeInput
   };
 
   const selectors = ["desktopSupport", "deviceRefresh", "softwareLicence", "userProductivity"];
-  
+  const subTitle={
+    desktopSupport:"Desktop Support",
+    deviceRefresh:"Device Refresh",
+    softwareLicence:"Software License",
+    userProductivity:"User Productivity"
+  }
   return (
     <div >      
     <div style={{ display: "flex",width:"83%", marginTop: "-20px", justifyContent: "space-between", alignSelf: "center", marginLeft: "72px" }}>
@@ -63,7 +68,7 @@ function PhaseDeleviry({PhaseDel, selectedOptions,handleChange,handleChangeInput
                 selectors?.map((item,index) => {
                   return (
                     <Box width={"calc(33.33% - 10px)"}>
-                      <Typography fontSize="14px" fontWeight={600}>{item}</Typography>
+                      <Typography fontSize="14px" fontWeight={600}>{subTitle[item]}</Typography>
                       <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"

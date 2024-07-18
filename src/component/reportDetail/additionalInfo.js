@@ -13,7 +13,9 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
     "reductionInDesktopSupportTickets": "Reduction in Desktop Support Ticket",
     "reductionInSoftware": "Reduction in Software",
     "reductionInRefresh": "Reduction in Refresh",
-    "reductionInWaitTime": "Reduction in WaitTime"
+    "reductionInWaitTime": "Reduction in WaitTime",
+    "firstYear": "First Year",
+    "subsYear": "Subsequent Years"
   }
 ;
   return (
@@ -43,7 +45,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
               ["firstYear", "subsYear"].map((item, index) => {
                 return (
                   <Box width={"calc(33.33% - 10px)"}>
-                    <Typography fontSize="14px" fontWeight={600}>{item}</Typography>
+                    <Typography fontSize="14px" fontWeight={600}>{AdditionalNames[item]}</Typography>
                     <Select
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
@@ -83,7 +85,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
               ["firstYear", "subsYear"].map((item, index) => {
                 return (
                   <Box width={"calc(33.33% - 10px)"}>
-                    <Typography fontSize="14px" fontWeight={600}>{item}</Typography>
+                    <Typography fontSize="14px" fontWeight={600}>{AdditionalNames[item]}</Typography>
                     <Select
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
@@ -120,7 +122,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
               })}
             {Addtionalprops.name === "reductionInRefresh" &&
              <Box width={"calc(100% - 10px)"}>
-             <Typography fontSize="14px" fontWeight={600}>{"firstYear"}</Typography>
+             <Typography fontSize="14px" fontWeight={600}>{"Each Year"}</Typography>
              <Select
                labelId="demo-simple-select-label"
                id="demo-simple-select"
@@ -157,7 +159,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
             }
             {Addtionalprops.name === "reductionInSoftware" &&
               <Box width={"calc(100% - 10px)"}>
-                <Typography fontSize="14px" fontWeight={600}>{"firstYear"}</Typography>
+                <Typography fontSize="14px" fontWeight={600}>{"Each Year"}</Typography>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
@@ -194,7 +196,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
             }
             {Addtionalprops.name === "reductionInWaitTime" &&
              <Box width={"calc(100% - 10px)"}>
-             <Typography fontSize="14px" fontWeight={600}>{"firstYear"}</Typography>
+             <Typography fontSize="14px" fontWeight={600}>{"Each Year"}</Typography>
              <Select
                labelId="demo-simple-select-label"
                id="demo-simple-select"
