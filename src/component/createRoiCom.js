@@ -95,7 +95,7 @@ function CreateRoiCom() {
         "industryAvg": 1
       },
       "licenceTerm": {
-        "industryAvg": 1
+        "industryAvg": 36
       },
       "desktopSupport": { "industryAvg": 1 },
       "deviceRefresh": { "industryAvg": 1 },
@@ -105,6 +105,9 @@ function CreateRoiCom() {
     for (const key in initialOptions) {
       if (phasedDelivery && phasedDelivery[key]) {
         initialOptions[key] = phasedDelivery[key][0];
+      }
+      if (configLicence && configLicence[key]) {
+        initialOptions[key] = configLicence[key][0];
       }
       if (configServiceDesk && configServiceDesk[key]) {
         initialOptions[key] = configServiceDesk[key][0];
@@ -182,7 +185,7 @@ function CreateRoiCom() {
           eps: (Object.values(selectedOptions["noOfEps"])[0]),
           date: inputsdata.date,
           licenceTerm: (Object.values(selectedOptions["licenceTerm"])[0]),
-          licencePrice: inputsdata.licencePrice,
+          licencePrice: parseInt(inputsdata.licensePrice),
           addonPrice: parseInt(inputsdata.addOnPrice),
           impleandTraining: parseInt(inputsdata.Implementationandtraining),
           residentPs: parseInt(inputsdata.residentPs),
@@ -304,7 +307,6 @@ function CreateRoiCom() {
     return isValid;
   };
   
-
   const callRoiApis = async (url, data) => {
     try{
     const apisColletion = await Axois.post(url, data)
