@@ -41,9 +41,9 @@ export default function ChildTable({ withAlluvio }) {
                 {
                   headerName == "Number of Device on 4 Year cylce" 
                   ?
-                  <TableCell align="right" sx={{ borderBottom: 'none', fontSize: "11px",width:"270px", padding: "6px",marginRight:'300px' }}>{headerName}</TableCell>
+                  <TableCell align="right" sx={{ borderBottom: 'none', fontSize: "11px",width:"260px", padding: "6px",marginRight:'300px' }}>{headerName}</TableCell>
                   :
-                  <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px", padding: "6px" }}>{headerName}</TableCell>
+                  <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px",width:"260px", padding: "6px" }}>{headerName}</TableCell>
                 }
                 </>
               ))}

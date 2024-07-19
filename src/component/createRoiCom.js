@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import CustomizedSteppers from '../commonComponent/stepper';
 import CustomerInfo from './reportDetail/CustomerInfo';
 import Spacer from '../commonComponent/spacer';
@@ -128,7 +128,6 @@ function CreateRoiCom() {
     return initialOptions;
   };
   const [selectedOptions, setSelectedOptions] = useState(initializeSelectedOptions);
-
   const customerInformation = [
     {
       name: "ROI"
@@ -333,7 +332,7 @@ function CreateRoiCom() {
       setToaster({open:false});
     }, 3000)
   }
-  
+  console.log(selectedOptions,"selectedOptions")
   const handleChangeInput=(e,item,parObj)=>{
     const { value } = e.target;
     if(steps==2){
@@ -357,15 +356,13 @@ function CreateRoiCom() {
       }
     }));
   }
-}
- ;
+};
+
   const handleChange = (event, selector, ParentObj) => {
     const selectedValue = event.target.value;
     if (selector == 'Assumptions') {
       setMainSelectValue(selectedValue)
       setManual(true)
-      // [configServiceDesk,configDesktopSupport,configHardware,
-      //   configSoftware,configUserProductivity]
       const updatedOptions = Object.keys(selectedOptions).reduce((acc, key, index) => {
         if (typeof selectedOptions[key] === 'object') {
           acc[key] = selectedValue=="manaul" ?  { manual: "" } : { [selectedValue]: selectedOptions[key][Object.keys(selectedOptions[key])[0]] };
