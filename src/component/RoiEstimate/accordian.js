@@ -86,8 +86,8 @@ export default function CustomizedAccordions() {
       {["Account Inc Pvt","Software Inc Pvt","Finance Inc Pvt"].map((item, index) => {
         return (
           <Accordion style={{ border: "0px solid white" }} expanded={expanded === item} onChange={handleChange(item)}>
-            <AccordionSummary style={index == 1 ? { backgroundColor: "white" } : {}} aria-controls="panel1d-content" id="panel1d-header">
-              <Typography>{item}</Typography>
+            <AccordionSummary style={index == 1 ? { backgroundColor: "white",display:"flex",minHeight:"30px",height:"36px",borderRadius:"4px" } : {display:"flex",minHeight:"30px",height:"36px",borderRadius:"4px"}} aria-controls="panel1d-content" id="panel1d-header">
+              <Typography style={{fontSize:"15px"}}>{item}</Typography>
             </AccordionSummary>
             <AccordionDetails>
             <TableContainer style={{ borderRadius: "0px", boxShadow: "1px 1px 1px -1px" }} component={Paper}>
@@ -95,8 +95,8 @@ export default function CustomizedAccordions() {
                   <TableHead>
                     <TableRow style={{ backgroundColor: "#efefef" }}>
                       {
-                        rows.map((name)=>(
-                          <TableCell align="center" sx={{ borderBottom: 'none', fontWeight:600, fontSize: "13px", padding: "6px" }}>{name.headername}</TableCell>
+                        rows.map((name,index)=>(
+                          <TableCell align={index==0?"justify":"center"} sx={{ borderBottom: 'none', fontWeight:600, fontSize: "13px", padding: "6px" }}>{name.headername}</TableCell>
 
                         ))
                       }
@@ -112,11 +112,11 @@ export default function CustomizedAccordions() {
                         key={row.name}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                       >
-                        <TableCell align='center' sx={{color:"#e10098" ,width:"200px",borderBottom: 'none', fontSize: "11px" ,padding: "6px" ,fontWeight:"600"}} component="th" scope="row">
+                        <TableCell align='justify' sx={{color:"#e10098" ,width:"200px",borderBottom: 'none', fontSize: "11px" ,padding: "6px" ,fontWeight:"600"}} component="th" scope="row">
                           {row.name}
                         </TableCell>
                         <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px", padding: "6px" }}>{row.created_at}</TableCell>
-                        {/* <TableCell align="right">{row.created_at}</TableCell> */}
+                        {/* <TableCell align="center">{row.created_at}</TableCell> */}
                         <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px", padding: "6px" }}>{row.status}</TableCell>
                         <TableCell align="center" sx={{ borderBottom: 'none', color:"#544dac", fontSize: "15px", padding: "0px" }}><MoreHorizIcon color='#544dac' /></TableCell>
                       </TableRow>)

@@ -66,7 +66,7 @@ export default function ChildTable({ withAlluvio }) {
         </TableCell>
       )}
       {(row.noOfDevices || row.noOfDevices === 0) && (
-        <TableCell align="center" sx={{ display: "flex", marginLeft: "147px", borderBottom: 'none', fontSize: "11px", padding: "6px" }}>
+        <TableCell align="center" sx={{ display: "flex", marginLeft: "120px", borderBottom: 'none', fontSize: "11px", padding: "6px" }}>
           {row.noOfDevices}
         </TableCell>
       )}

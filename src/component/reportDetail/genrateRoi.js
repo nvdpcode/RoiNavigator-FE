@@ -34,18 +34,23 @@ function TimeLineRoi() {
                   Digital Workplace Benefits
                 </TableCell>
               </TableRow>
-              {["Service Desk", "Device Refresh", "Software License", "Sub total"].map((row) => (
+              {["Service Desk", "Device Refresh", "Software License", "Sub total"].map((row,index) => (
+               
                 <TableRow
                   // key={row.name}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >                 <TableCell align="start" sx={{ color: "rgb(78 79 169)", borderBottom: 'none', fontSize: "11px",padding:"8px" }}>{row}</TableCell>
+                >
+                                  <TableCell align="start" sx={{ color: "rgb(78 79 169)", borderBottom: 'none', fontSize: "11px",padding:"8px" }}>{row}</TableCell>
+                                {index !==3 &&
+                                  <>
                                   <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px",padding:"8px" }}><span style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}><span>$</span><span>244</span></span></TableCell>           
                                   <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px",padding:"8px" }}><span style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}><span>$</span><span>244</span></span></TableCell>
                                   <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px",padding:"8px" }}><span style={{}}>--</span></TableCell>
                                   <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px",padding:"8px" }}><span style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}><span>$</span><span>244</span></span></TableCell>
                                   <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px",padding:"8px" }}><span style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}><span>$</span><span>244</span></span></TableCell>
                                   <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px",padding:"8px" }}><span style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}><span>$</span><span>244</span></span></TableCell>
-
+                                  </>
+                                }
                 </TableRow>
               ))}
                <TableRow>

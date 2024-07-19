@@ -141,10 +141,10 @@ const stepsLabel = [
 export default function CustomizedSteppers(props) {
 
   const handleStepClick = (activeStep,step) => {
-    //  let stepDiff = step - activeStep
-    // if(stepDiff == 1 ){
-    //   props.setSteps(step);
-    // }
+     let stepDiff = step - activeStep
+    if(stepDiff == 1 ){
+      props.setSteps(step);
+    }
   };
 
   return (

@@ -44,13 +44,13 @@ function RoiEstimation() {
       >
         <OutlinedInput
           fullWidth
-          sx={{ marginRight: 4, height: "35px" }} placeholder="value" id="fullWidth"
+          sx={{ marginRight: 4, height: "33px" }} placeholder="value" id="fullWidth"
           startAdornment={<InputAdornment position="start"><SearchIcon/></InputAdornment>}
           aria-describedby="outlined-weight-helper-text"
           inputProps={{
           }}
         />
-        <Button onClick={()=>{navigation('/createRoi')}}  style={{ width: "15%", borderRadius:"23px",textTransform:"none",  backgroundColor: "#e10098", color: "white", marginRight: 33 }}>Create ROI</Button>
+        <Button onClick={()=>{navigation('/createRoi')}}  style={{ width: "15%",height:"33px", borderRadius:"7px",textTransform:"none",  backgroundColor: "#e10098", color: "white", marginRight: 33 }}>Create ROI</Button>
       </Box>
       
       <Spacer height={50} />

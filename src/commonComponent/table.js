@@ -64,6 +64,7 @@ function EnhancedTableHead(props) {
       <TableRow>
           {headCells.map((headCell) => (
           <TableCell
+            style={{display:"flex", height:"15px"}}
             key={headCell.id}
             sortDirection={orderBy === headCell.id ? order : false}
           >

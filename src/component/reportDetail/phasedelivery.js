@@ -44,7 +44,7 @@ function PhaseDeleviry({PhaseDel, selectedOptions,handleChange,handleChangeInput
       </div>
       <Container style={{
         backgroundColor: "red",
-        width: "90%", minHeight: 174,
+        width: "88%", minHeight: 174,
         display: "flex",
         flexDirection: "column",
         gap: "10px",
@@ -56,7 +56,7 @@ function PhaseDeleviry({PhaseDel, selectedOptions,handleChange,handleChangeInput
           backgroundColor: '#efefef',
           borderRadius: "0px",
           height: 43,
-          width: "calc(106% - 13px)",
+          width: "calc(106% - 10px)",
           marginLeft: "-26px"
         }}>
           <Typography style={{ border: "none", fontSize: '19px', color: '#4e4fa9', fontWeight: 750, margin: 8 }}>{"Start month"}</Typography>
@@ -75,7 +75,7 @@ function PhaseDeleviry({PhaseDel, selectedOptions,handleChange,handleChangeInput
                         name="selectValue"
                         value={Object.keys(selectedOptions[item]) || ""}
                         onChange={(e) => handleChange(e, item,"start_month")}
-                        style={Object.keys(selectedOptions[item])=="manual" ? { display: "flex", height: 37, backgroundColor: "rgb(225 0 152 / 10%)" } : { display: "flex", height: 37 }}
+                        style={Object.keys(selectedOptions[item])=="manual" ? { display: "flex", height: 35, backgroundColor: "rgb(225 0 152 / 10%)" } : { display: "flex", height: 35 }}
                         >
                         <MenuItem onClick={() => handleManual(index)} key={"manual"} value={"manual"}>Manual</MenuItem>
                         {PhaseDel[0]?.phasedDelivery[item]?.map((obj, idx) => {
@@ -105,7 +105,7 @@ function PhaseDeleviry({PhaseDel, selectedOptions,handleChange,handleChangeInput
            }
           </Box>
         </Box>
-        <Spacer height={30} />
+        <Spacer height={15} />
       </Container>
       <Spacer height={30} />
     </div>
