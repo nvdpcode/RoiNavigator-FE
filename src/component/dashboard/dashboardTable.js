@@ -110,7 +110,7 @@ const headCells = [
     id: 'fat',
     numeric: true,
     disablePadding: false,
-    label: 'creator',
+    label: 'Creator',
   },
   {
     id: 'Product',
@@ -187,7 +187,7 @@ function EnhancedTableHead(props) {
 }
 
 
-export default function DshboardTable() {
+export default function DashboardTable() {
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('calories');
   // const [selected, setSelected] = useState([]);

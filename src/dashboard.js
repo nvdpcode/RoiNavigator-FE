@@ -8,7 +8,7 @@ import BasicCard from './commonComponent/carts';
 import Spacer from './commonComponent/spacer';
 import LineChartComponent from './commonComponent/lineChart';
 import BarChartComponent from './commonComponent/barchart';
-import DshboardTable from './component/dashboard/dashboardTable';
+import DashboardTable from './component/dashboard/dashboardTable';
 import { MenuImage, calculatorImage, MultiUserImage } from './assets/assets';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -51,6 +51,18 @@ function Dashboard() {
     name: "Average payback"
   }]
   )
+  const [isHovered, setIsHovered] = useState(false);
+  const baseStyle = {
+    height: '70px',
+    width: '71px',
+    borderRadius: '10px',
+    transition: 'opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+    opacity: isHovered ? 1 : 0.8,
+    cursor: 'pointer',
+    boxShadow: isHovered
+      ? '0px 4px 8px rgba(0, 0, 0, 0.5)'
+      : '0px 2px 4px rgba(0, 0, 0, 0.1)' 
+  };
   
 const downloadPDF = (pdfId) => {
   const input = document.getElementById(pdfId);
@@ -76,6 +88,7 @@ const downloadPDF = (pdfId) => {
     pdf.save('document.pdf');
   }); 
 };
+const [hoveredId, setHoveredId] = useState(null);
 
   return (
     <div style={{ overflow: "auto", maxHeight: 'calc(100vh - 10px)' }}>
@@ -84,32 +97,50 @@ const downloadPDF = (pdfId) => {
       <div style={{ marginTop: '95px', marginLeft: "100px" }}>
           <Typography style={{marginBottom:"40px",fontWeight:"bold", marginTop:-10}}>Insights</Typography>
         <Grid container item spacing={3}>
-          {dashCards.map((item) => (
-            <Grid item xs={1.7} key={item}>
-              <Item style={{ height: '70px', width: '71px', borderRadius: 10 }}>
-                <span style={{ display: "flex",alignItems:"baseline", flexDirection: "column", marginTop: 10 }}>
-                  <span style={{ fontSize: 11, fontWeight: 900 }}>{item?.count}</span>
-                  <span style={{ fontSize: 11, fontWeight: 900 }}>{item?.months} </span>
-                  <span style={{ fontSize: 11, fontWeight: 900 }}>{item?.price}</span>
-                  <span style={{ fontSize: 11, fontWeight: 900 }}>{item?.percentage}</span>
-                  <span style={{ fontSize: 11 }}>{item.name}</span>
-                </span>
-              </Item>
-            </Grid>
-          ))}
+          {dashCards.map((item, index) => {
+            const isHovered = hoveredId === index;
+            const baseStyle = {
+              height: '70px',
+              width: '71px',
+              borderRadius: '10px',
+              transition: 'opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+              opacity: isHovered ? 1 : 0.8,
+              cursor: 'pointer',
+              boxShadow: isHovered
+                ? '0px 4px 8px rgba(0, 0, 0, 0.5)'
+                : '0px 2px 4px rgba(0, 0, 0, 0.1)',
+            };
+            return (
+              <Grid item xs={1.7} key={item}>
+                <Item
+                  style={baseStyle}
+                  onMouseEnter={() => setHoveredId(index)}
+                  onMouseLeave={() => setHoveredId(null)}
+                >
+                  <span style={{ display: "flex", alignItems: "baseline", flexDirection: "column", marginTop: 10 }}>
+                    <span style={{ fontSize: 11, fontWeight: 900 }}>{item?.count}</span>
+                    <span style={{ fontSize: 11, fontWeight: 900 }}>{item?.months} </span>
+                    <span style={{ fontSize: 11, fontWeight: 900 }}>{item?.price}</span>
+                    <span style={{ fontSize: 11, fontWeight: 900 }}>{item?.percentage}</span>
+                    <span style={{ fontSize: 11 }}>{item.name}</span>
+                  </span>
+                </Item>
+              </Grid>
+            );
+          })}
         </Grid>
         <Spacer height={50} />
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <Box sx={{ width: "50%" }}>
-            <BasicCard  downloadId="downloadPdf1" propWidth={505} propHeight={270}   downloadPDF={downloadPDF} groupsIcon={MultiUserImage} component={<LineChartComponent />} headerContent="ROIs over time" />
+            <BasicCard  downloadId="downloadPdf1" propWidth={505} propHeight={270}   downloadPDF={downloadPDF} groupsIcon={MultiUserImage} component={<LineChartComponent />} headerContent="ROIs Over Time" />
           </Box>
           <Box sx={{ width: "50%" }}>
-            <BasicCard downloadId="downloadPdf2" propWidth={505} propHeight={270}  downloadPDF={downloadPDF} groupsIcon={calculatorImage} component={<BarChartComponent />} headerContent="Users over time" />
+            <BasicCard downloadId="downloadPdf2" propWidth={505} propHeight={270}  downloadPDF={downloadPDF} groupsIcon={calculatorImage} component={<BarChartComponent />} headerContent="Users Over Time" />
           </Box>
         </div>
         <Spacer height={60} />
         <div>
-          <BasicCard downloadId="downloadPdf3" propWidth={1100} propHeight={270} downloadPDF={downloadPDF} groupsIcon={MenuImage} component={<DshboardTable />} headerContent="ROIs over time" />
+          <BasicCard downloadId="downloadPdf3" propWidth={1100} propHeight={270} downloadPDF={downloadPDF} groupsIcon={MenuImage} component={<DashboardTable />} headerContent="ROIs Over Time" />
         </div>
         <Spacer height={20} />
       </div>

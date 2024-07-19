@@ -46,7 +46,7 @@ export default function TemporaryDrawer() {
       <List>
         {['Dashboard','ROI Estimate', 'Industry Configration'].map((text, index) => (
           <ListItem key={text} disablePadding>      
-            <ListItemButton onClick={(event)=>callingNav(event)} style={{color:"rgba(184, 185, 221)"}}>
+            <ListItemButton onClick={(event)=>callingNav(event)} style={{ color: "#4E4FA9" }}>
             {iconMap[text]}
             <Spacer height={80}/>
            <ListItemText style={{marginLeft:"9px"}} primary={text} />
