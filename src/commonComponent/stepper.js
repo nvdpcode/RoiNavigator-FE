@@ -135,7 +135,7 @@ const stepsLabel = [
   'Additional Infromation',
   'Phase Delivery',
   'Calculation Savings',
-  'Generate Roi Report',
+  'Generate ROI Report',
 ];
 
 export default function CustomizedSteppers(props) {

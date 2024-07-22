@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useRef, useMemo, useState } from 'react'
 import CustomizedSteppers from '../commonComponent/stepper';
 import CustomerInfo from './reportDetail/CustomerInfo';
 import Spacer from '../commonComponent/spacer';
@@ -20,6 +20,10 @@ import BasicModal from './RoiEstimate/createRoi';
 
 function CreateRoiCom() {
   const [steps, setSteps] = useState(0)
+  const windowSize = useRef([
+    window.innerWidth,
+    window.innerHeight,
+  ]);
   const [isLoading, setLoading] = useState(false)
   const [manual, setManual] = useState(false)
   const { inputsdata } = useSelector((state) => state.InputsReducer);
@@ -54,6 +58,7 @@ function CreateRoiCom() {
     reductionInRefresh,
     reductionInWaitTime
   } = configDetails
+  
     const [AdditionalOptions, setAdditionalOptions] = useState(
       {
         "reductionInMTR": {
@@ -332,7 +337,6 @@ function CreateRoiCom() {
       setToaster({open:false});
     }, 3000)
   }
-  console.log(selectedOptions,"selectedOptions")
   const handleChangeInput=(e,item,parObj)=>{
     const { value } = e.target;
     if(steps==2){
@@ -456,6 +460,7 @@ function CreateRoiCom() {
       }));}
     }
   };
+  console.log(windowSize,"screenSize")
   return (
     <div>
       <TemporaryDrawer />
@@ -499,6 +504,7 @@ function CreateRoiCom() {
             {steps == 1 &&
               <div style={{ marginTop: "43px", marginLeft: "58px" }}>
                 <Reportheader 
+                   windowSize={windowSize}
                    mainSelectedValue={mainSelectedValue}
                    handleChange={handleChange} 
                    Assumptions={'Assumptions'}
@@ -528,6 +534,7 @@ function CreateRoiCom() {
             {steps == 2 &&
               <div style={{ marginTop: "43px", marginLeft: "58px" }}>
                 <Reportheader
+                    windowSize={windowSize}
                     mainSelectedValue={mainSelectedValue}
                     handleChange={handleChange} 
                     Assumptions={'additionAssumptions'}

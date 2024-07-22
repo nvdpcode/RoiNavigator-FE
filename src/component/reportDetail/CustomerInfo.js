@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, InputAdornment, OutlinedInput, Typography, Container, MenuItem, Select } from '@mui/material';
 import Spacer from '../../commonComponent/spacer';
-import { setFormData, updateInput } from '../Home/actions/actions';
+import {  updateInput } from '../Home/actions/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import Calendar from '../../commonComponent/calendar';
 
