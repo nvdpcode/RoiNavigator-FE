@@ -182,7 +182,7 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
                     const keys = Object.keys(obj)[0];
                     const value = obj[keys];
                     return (
-                      <MenuItem key={idx} value={keys}>{`$${value} - ${keys}`}</MenuItem>
+                      <MenuItem key={idx} value={keys}>{`$ ${value} - ${keys}`}</MenuItem>
                     );
                   })}
                 </Select>
