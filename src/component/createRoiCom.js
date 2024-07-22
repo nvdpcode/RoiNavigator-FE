@@ -263,7 +263,6 @@ function CreateRoiCom() {
     const requiredFields = [
       'Implementationandtraining',
       'licensePrice',
-      'roiName',
       'customerName',
       'contactName',
       'numberOfEps'

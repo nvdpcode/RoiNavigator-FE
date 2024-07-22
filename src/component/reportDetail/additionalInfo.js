@@ -185,7 +185,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
                         style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                         name={"desktop"}
                         // value={inputsdata[inputName] || ""}
-                        onChange={(e) => handleChangeInput(e, 'firstYear',"reductionInWaitTime")}
+                        onChange={(e) => handleChangeInput(e, 'firstYear',"reductionInSoftware")}
                         startAdornment={<InputAdornment position="start">%</InputAdornment>}
                         inputProps={{
                           'aria-label': 'weight',
