@@ -479,6 +479,7 @@ function CreateRoiCom() {
             {steps == 0 &&
               <div style={{ marginTop: "43px", marginLeft: "58px" }}>
                  <Reportheader
+                    windowSize={windowSize}
                     mainSelectedValue={mainSelectedValue}
                     handleChange={handleChange} 
                     headingName={'Create New ROI'}
