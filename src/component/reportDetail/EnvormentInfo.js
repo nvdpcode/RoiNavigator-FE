@@ -76,8 +76,9 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
                       })}
                     </Select>
                     {
-                     (manual || manualIndex.includes(index)) && Object.keys(selectedOptions[item])[0] == "manual" &&
+                     Object.keys(selectedOptions[item])[0] == "manual" &&
                       <OutlinedInput
+                        defaultValue={Object.values(selectedOptions[item])[0]}
                         error={isNaN(Object.values(selectedOptions[item])[0]) ?? false}
                         style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                         name={"desktop"}
@@ -116,6 +117,7 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
                 {
                   envprops.name === "Desktop Support" && Object.keys(selectedOptions["desktopSupportTicketPerc"])[0] == "manual" &&
                   <OutlinedInput
+                    defaultValue={Object.values(selectedOptions["desktopSupportTicketPerc"])[0]}
                     error={isNaN(Object.values(selectedOptions["desktopSupportTicketPerc"])[0]) ?? false}
                     style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                     onChange={(e) => handleChangeInput(e, "desktopSupportTicketPerc")}
@@ -153,6 +155,7 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
                     {
                   envprops.name === "Hardware" && Object.keys(selectedOptions[item])[0] == "manual" &&
                   <OutlinedInput
+                    defaultValue={Object.values(selectedOptions[item])[0]}
                     error={isNaN(Object.values(selectedOptions[item])[0]) ?? false}
                     style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                     onChange={(e) => handleChangeInput(e, item)}
@@ -189,6 +192,7 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
                 {
                   envprops.name === "Software" && Object.keys(selectedOptions["costPerUser"])[0] == "manual" &&
                   <OutlinedInput
+                    defaultValue={Object.values(selectedOptions["costPerUser"])[0]}
                     error={isNaN(Object.values(selectedOptions["costPerUser"])[0]) ?? false}
                     style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                     onChange={(e) => handleChangeInput(e, "costPerUser")}
@@ -202,7 +206,6 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
             }
             {envprops.name === "Productivity" &&
               ["waitTime", "hourlyPrice", "avgTimeSpentonPc"].map((item, index) => {
-                console.log(Object.keys(selectedOptions[item])[0],"Lifo")
                 return (
                   <Box width={"calc(33.33% - 10px)"}>
                     <Typography fontSize="14px" fontWeight={600}>{configName[item]}</Typography>
@@ -226,6 +229,7 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
                     {
                   envprops.name === "Productivity" && Object.keys(selectedOptions[item])[0] == "manual" &&
                   <OutlinedInput
+                    defaultValue={Object.values(selectedOptions["costPerUser"])[0]}
                     error={isNaN(Object.values(selectedOptions[item])[0]) ?? false}
                     style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}              
                     onChange={(e) => handleChangeInput(e, item)}

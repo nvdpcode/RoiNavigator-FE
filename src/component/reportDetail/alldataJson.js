@@ -238,10 +238,18 @@ export const configDetails = {
     ]
   },
   "reductionInRefresh": {
-    "firstYear": [{ "industryLow": 20 }],
+    "firstYear": [
+      { "industryLow": 20 },
+      { "industryAvg": 25 },
+      { "industryHigh": 30 }
+    ],
   },
   "reductionInWaitTime": {
-    "firstYear": [{ "industryLow": 10 }],
+    "firstYear": [
+      { "industryLow": 10 },
+      { "industryAvg": 20 },
+      { "industryHigh":30 }
+    ],
   },
   "phasedDelivery": {
   

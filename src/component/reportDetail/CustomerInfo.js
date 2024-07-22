@@ -145,13 +145,15 @@ function CustomerInfo({ item, errorName, selectedOptions,handleChangeInput,handl
                         );
                       })}
                   </Select>
+              
                   {
                    Object.keys(selectedOptions["noOfEps"]) == "manual" &&
                   <OutlinedInput
+                    defaultValue={Object.values(selectedOptions["noOfEps"])[0]}
                     error={true}
                     style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                     onChange={(e) => handleChangeInput(e, "noOfEps")}
-                    startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                    startAdornment={<InputAdornment position="start">%</InputAdornment>}
                     inputProps={{
                       'aria-label': 'weight',
                     }}
@@ -176,8 +178,7 @@ function CustomerInfo({ item, errorName, selectedOptions,handleChangeInput,handl
                     placeholder="Select License Term"
                     style={{ height: 37, marginTop: "7px", width: "100%" }}
                     inputProps={{
-                      'aria-label': 'License Term',
-                      
+                      'aria-label': 'License Term', 
                     }}
                     
                   > 
@@ -193,9 +194,10 @@ function CustomerInfo({ item, errorName, selectedOptions,handleChangeInput,handl
                   {
                    Object.keys(selectedOptions["licenceTerm"]) == "manual" &&
                   <OutlinedInput
+                    defaultValue={Object.values(selectedOptions["licenceTerm"])[0]}
                     style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                     onChange={(e) => handleChangeInput(e, "licenceTerm")}
-                    startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                    startAdornment={<InputAdornment position="start">%</InputAdornment>}
                     inputProps={{
                       'aria-label': 'weight',
                     }}

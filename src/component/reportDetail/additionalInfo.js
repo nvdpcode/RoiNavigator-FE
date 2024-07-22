@@ -44,7 +44,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
             {Addtionalprops.name === "reductionInMTR" &&
               ["firstYear", "subsYear"].map((item, index) => {
                 return (
-                  <Box width={"calc(33.33% - 10px)"}>
+                  <Box sx={{display:"flex",flexDirection:"column",gap:"10px"}} width={"calc(33.33% - 10px)"}>
                     <Typography fontSize="14px" fontWeight={600}>{AdditionalNames[item]}</Typography>
                     <Select
                       labelId="demo-simple-select-label"
@@ -66,6 +66,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
                     {
                       Object.keys(AdditionalOptions["reductionInMTR"][item]) == "manual" &&
                       <OutlinedInput 
+                        defaultValue={Object.values(AdditionalOptions["reductionInMTR"][item])}
                         error={isNaN(Object.values(AdditionalOptions["reductionInMTR"][item]))}
                         style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                         name={"desktop"}
@@ -84,7 +85,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
             {Addtionalprops.name === "reductionInDesktopSupportTickets" &&
               ["firstYear", "subsYear"].map((item, index) => {
                 return (
-                  <Box width={"calc(33.33% - 10px)"}>
+                  <Box sx={{display:"flex",flexDirection:"column",gap:"10px"}} width={"calc(33.33% - 10px)"}>
                     <Typography fontSize="14px" fontWeight={600}>{AdditionalNames[item]}</Typography>
                     <Select
                       labelId="demo-simple-select-label"
@@ -107,6 +108,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
                     {
                       Object.keys(AdditionalOptions["reductionInDesktopSupportTickets"][item])=="manual" &&
                       <OutlinedInput
+                        defaultValue={Object.values(AdditionalOptions["reductionInDesktopSupportTickets"][item])}
                         error={isNaN(Object.values(AdditionalOptions["reductionInDesktopSupportTickets"][item]))}
                         style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                         name={"desktop"}
@@ -121,7 +123,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
                 )
               })}
             {Addtionalprops.name === "reductionInRefresh" &&
-             <Box width={"calc(100% - 10px)"}>
+             <Box  sx={{display:"flex",flexDirection:"column",gap:"10px"}} width={"calc(100% - 10px)"}>
              <Typography fontSize="14px" fontWeight={600}>{"Each Year"}</Typography>
              <Select
                labelId="demo-simple-select-label"
@@ -144,6 +146,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
              {
                   Object.keys(AdditionalOptions["reductionInRefresh"]["firstYear"])=="manual" &&
                    <OutlinedInput
+                     defaultValue={Object.values(AdditionalOptions["reductionInRefresh"]['firstYear'])}
                      error={isNaN(Object.values(AdditionalOptions["reductionInRefresh"]["firstYear"]))}
                      style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                      name={"desktop"}
@@ -158,7 +161,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
            </Box>
             }
             {Addtionalprops.name === "reductionInSoftware" &&
-              <Box width={"calc(100% - 10px)"}>
+              <Box sx={{display:"flex",flexDirection:"column",gap:"10px"}} width={"calc(100% - 10px)"}>
                 <Typography fontSize="14px" fontWeight={600}>{"Each Year"}</Typography>
                 <Select
                   labelId="demo-simple-select-label"
@@ -181,6 +184,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
                 {
                      Object.keys(AdditionalOptions["reductionInSoftware"]["firstYear"])=="manual" &&
                       <OutlinedInput
+                        defaultValue={Object.values(AdditionalOptions["reductionInSoftware"]['firstYear'])}
                         error={isNaN(Object.values(AdditionalOptions["reductionInSoftware"]["firstYear"]))}
                         style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                         name={"desktop"}
@@ -195,7 +199,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
               </Box>
             }
             {Addtionalprops.name === "reductionInWaitTime" &&
-             <Box width={"calc(100% - 10px)"}>
+             <Box sx={{display:"flex",flexDirection:"column",gap:"10px"}} width={"calc(100% - 10px)"}>
              <Typography fontSize="14px" fontWeight={600}>{"Each Year"}</Typography>
              <Select
                labelId="demo-simple-select-label"
@@ -218,6 +222,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
              {
                   Object.keys(AdditionalOptions["reductionInWaitTime"]["firstYear"])=="manual" &&
                    <OutlinedInput
+                     defaultValue={Object.values(AdditionalOptions["reductionInWaitTime"]["firstYear"])}
                      style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                      name={"desktop"}
                      // value={inputsdata[inputName] || ""}

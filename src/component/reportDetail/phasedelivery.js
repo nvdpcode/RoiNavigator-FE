@@ -87,8 +87,9 @@ function PhaseDeleviry({PhaseDel, selectedOptions,handleChange,handleChangeInput
                         })}
                       </Select>
                       {
-                     (manual || manualIndex.includes(index)) && Object.keys(selectedOptions[item])[0] == 'manual' &&
+                     Object.keys(selectedOptions[item])[0] == 'manual' &&
                       <OutlinedInput
+                        defaultValue={Object.values(selectedOptions[item])[0]}
                         style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                         name={"desktop"}
                         error={isNaN(Object.values(selectedOptions[item])[0]) ?? false}
