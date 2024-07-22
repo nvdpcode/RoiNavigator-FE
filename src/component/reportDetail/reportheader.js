@@ -5,7 +5,7 @@ function Reportheader({handleChange,mainSelectedValue,Assumptions,headingName}) 
   return (
     <div style={{ display: "flex",width:"97%", marginTop: "-20px", justifyContent: "space-between", alignSelf: "center", marginLeft: "50px" }}>
     <Typography style={{ color: "#e10098", fontSize: "22px",fontWeight:"600" }}>{headingName}</Typography>
-   {
+   {/* {
    Assumptions &&
    <span style={{display:"flex", width: "30%", marginRight: "-34px" ,gap:"10px"}}>
       <Typography>Assumptions</Typography>
@@ -25,7 +25,7 @@ function Reportheader({handleChange,mainSelectedValue,Assumptions,headingName}) 
           <MenuItem value={"industryLow"}>industry Low</MenuItem>
         </Select>
       </Box>
-    </span>}
+    </span>} */}
   </div>
   )
 }

@@ -15,12 +15,12 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
     );
   };
   let configName={
-    "tL1Cost":"Cost per Ticket L1",
-    "tL2Cost":"Cost per Ticket L2", 
-    "tL3Cost":"Cost per Ticket L3",
-    "noOfL1TicketsPerUM":"Number per Ticket L1",
-    "noOfL2TicketsPerUM":"Number per Ticket L2",
-    "noOfL3TicketsPerUM":"Number per Ticket L3",
+    "tL1Cost":"Cost Per Ticket L1",
+    "tL2Cost":"Cost Per Ticket L2", 
+    "tL3Cost":"Cost Per Ticket L3",
+    "noOfL1TicketsPerUM":"Number of Ticket L1",
+    "noOfL2TicketsPerUM":"Number of Ticket L2",
+    "noOfL3TicketsPerUM":"Number of Ticket L3",
     "waitTime":"Wait Time",
     "hourlyPrice":"Hourly Rate",
     "avgTimeSpentonPc":"Average Time Spent on Pc",
@@ -28,7 +28,8 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
     "deviceRefresh":"Refresh"
 
   }
-  
+ 
+
   return (
     <div>
       <Container style={{
@@ -145,7 +146,7 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
                         const keys = Object.keys(obj)[0];
                         const value = obj[keys];
                         return (
-                          <MenuItem key={idx} value={keys}>{`$ ${value} - ${keys}`}</MenuItem>
+                          <MenuItem key={idx} value={keys}>{item=="deviceRefresh" ? ` ${value} - ${keys}`:`$ ${value} - ${keys}`}</MenuItem>
                         );
                       })}
                     </Select>
@@ -167,7 +168,7 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
             }
             {envprops.name === "Software" &&
               <Box width={"calc(100% - 10px)"}>
-                <Typography fontSize="14px" fontWeight={600}>{"Cost per User"}</Typography>
+                <Typography fontSize="14px" fontWeight={600}>{"Cost Per User"}</Typography>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
@@ -181,7 +182,7 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
                     const keys = Object.keys(obj)[0];
                     const value = obj[keys];
                     return (
-                      <MenuItem key={idx} value={keys}>{`${value}% - ${keys}`}</MenuItem>
+                      <MenuItem key={idx} value={keys}>{`$${value} - ${keys}`}</MenuItem>
                     );
                   })}
                 </Select>
@@ -201,6 +202,7 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
             }
             {envprops.name === "Productivity" &&
               ["waitTime", "hourlyPrice", "avgTimeSpentonPc"].map((item, index) => {
+                console.log(Object.keys(selectedOptions[item])[0],"Lifo")
                 return (
                   <Box width={"calc(33.33% - 10px)"}>
                     <Typography fontSize="14px" fontWeight={600}>{configName[item]}</Typography>

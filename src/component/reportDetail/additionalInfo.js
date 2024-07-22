@@ -13,7 +13,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
     "reductionInDesktopSupportTickets": "Reduction in Desktop Support Ticket",
     "reductionInSoftware": "Reduction in Software",
     "reductionInRefresh": "Reduction in Refresh",
-    "reductionInWaitTime": "Reduction in WaitTime",
+    "reductionInWaitTime": "Reduction in Wait Time",
     "firstYear": "First Year",
     "subsYear": "Subsequent Years"
   }

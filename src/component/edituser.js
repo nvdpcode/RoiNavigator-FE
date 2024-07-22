@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Box, TextField, Button, Typography } from '@mui/material';
+import { Container, Box, TextField, Button, Typography, OutlinedInput } from '@mui/material';
 import Spacer from '../commonComponent/spacer';
 import Header from '../commonComponent/header';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
@@ -7,16 +7,16 @@ import { wallImage } from '../assets/assets';
 import "./edituser.css"
 function ProfileComponent() {
   const [updated, setUpdated] = React.useState(true)
-  const [userDetail,setUserDetail] = React.useState({
-    userName:"super",
-    lastName:"Admin",
-    contactNumber:"99399367513",
-    email:"test@gmail.com"
+  const [userDetail, setUserDetail] = React.useState({
+    userName: "super",
+    lastName: "Admin",
+    contactNumber: "99399367513",
+    email: "test@gmail.com"
   })
   function handleSubmit(event) {
     event.preventDefault();
     setUpdated(false)
-    
+
   }
   const handleChangeInput = (event, fieldName) => {
     setUserDetail({
@@ -41,71 +41,58 @@ function ProfileComponent() {
                 backgroundColor: "#bbb"
               }} />
             </div>
-            <Typography style={{ fontSize: "15px", fontWeight: "600" }}>First Name</Typography>
-            <TextField
-              aria-invalid="false"
-              autoComplete="off"
-              disabled={updated}
+            <Box style={{display:"flex",flexDirection:"column",gap:"8px"}}>
+            <Typography style={{ fontSize: "15px" }}>First Name</Typography>
+            <OutlinedInput
+              style={{ width: "100%", height: 37, fontSize: '15px', marginBottom: "5px" }}
               id="firstName"
               name="firstName"
-              placeholder="Enter First Name"
-              type="text"
+              disabled={updated}
               value={userDetail.userName}
-              onChange={(event)=>handleChangeInput(event ,"userName")} 
-              variant="filled"
-              className="textInput"
+              onChange={(event) => handleChangeInput(event, "userName")}
               fullWidth
             />
+            </Box>
             <Spacer height={20} />
-            <Typography style={{ fontSize: "15px", fontWeight: "600" }}>Last Name</Typography>
-            <TextField
-              aria-invalid="false"
-              autoComplete="off"
+            <Box style={{display:"flex",flexDirection:"column",gap:"8px"}}>
+            <Typography style={{ fontSize: "15px" }}>Last Name</Typography>
+            <OutlinedInput
+              style={{ width: "100%", height: 37, fontSize: '15px', marginBottom: "5px" }}
+              id="lastName"
+              name="lastName"
               disabled={updated}
-              id="firstName"
-              name="firstName"
-              placeholder="Enter First Name"
-              type="text"
               value={userDetail.lastName}
-              onChange={(event)=>handleChangeInput(event, "lastName")} 
-              variant="filled"
-              className="textInput"
+              onChange={(event) => handleChangeInput(event, "lastName")}
               fullWidth
             />
+             </Box>
             <Spacer height={8} />
-            <Typography style={{ fontSize: "15px", fontWeight: "600" }}>Contact Number</Typography>
-            <TextField
-              aria-invalid="false"
-              autoComplete="off"
+            <Box style={{display:"flex",flexDirection:"column",gap:"8px"}}>
+            <Typography style={{ fontSize: "15px" }}>Contact Number</Typography>
+            <OutlinedInput
+              style={{ width: "100%", height: 37, fontSize: '15px', marginBottom: "5px" }}
+              id="contactNumber"
+              name="contactNumber"
               disabled={updated}
-              id="firstName"
-              name="firstName"
-              placeholder="Enter First Name"
-              type="text"
-
               value={userDetail.contactNumber}
-              onChange={(event)=>handleChangeInput(event,"contactNumber")} 
-              variant="filled"
-              className="textInput"
+              onChange={(event) => handleChangeInput(event, "contactNumber")}
               fullWidth
             />
+             </Box>
             <Spacer height={8} />
-            <Typography style={{ fontSize: "15px", fontWeight: "600" }}>Email</Typography>
-            <TextField
-              aria-invalid="false"
-              autoComplete="off"
+            <Box style={{display:"flex",flexDirection:"column",gap:"8px"}}>
+            <Typography style={{ fontSize: "15px" }}>Email</Typography>
+            <OutlinedInput
+              style={{ width: "100%", height: 37, fontSize: '15px', marginBottom: "5px" }}
+              id="email"
+              
+              name="email"
               disabled={updated}
-              id="firstName"
-              name="firstName"
-              placeholder="Enter First Name"
-              type="text"
-
               value={userDetail.email}
-              onChange={(event)=>handleChangeInput(event,'email')} 
-              variant="filled"
-              className="textInput"
+              onChange={(event) => handleChangeInput(event, "email")}
               fullWidth
             />
+             </Box>
             <Button
               type="submit"
               fullWidth

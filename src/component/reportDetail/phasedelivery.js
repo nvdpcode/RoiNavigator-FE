@@ -23,7 +23,7 @@ function PhaseDeleviry({PhaseDel, selectedOptions,handleChange,handleChangeInput
   return (
     <div >      
     <div style={{ display: "flex",width:"83%", marginTop: "-20px", justifyContent: "space-between", alignSelf: "center", marginLeft: "72px" }}>
-    <Typography style={{ color: "#e10098", fontSize: "22px",fontWeight:"600" }}>PhaseDilevery</Typography>
+    <Typography style={{ color: "#e10098", fontSize: "22px",fontWeight:"600" }}>Phase Delivery</Typography>
       <span style={{ display:"flex",width:"30%",marginRight:"-134px"}}>
        <Typography>Assumptions</Typography>
        <Box width={"calc(50% - 10px)"}>

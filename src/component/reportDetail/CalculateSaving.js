@@ -51,58 +51,58 @@ function CalculateSaving({setToaster}) {
   const { withAlluvio, withoutAlluvio ,savings } = calculationApiData
   const withAlluvioFormat = [
     {
-      name: ["L1DesktopSupport" , "Number Of Tickets", "Cost Per Tickets", "Cost Per Annum"],
+      name: ["L1 Desktop Support" , "Number Of Tickets", "Cost Per Tickets", "Cost Per Annum"],
       data: withAlluvio.L1DesktopSupport
     },
     {
-      name: ["L2DesktopSupport" , "Number Of Tickets", "Cost Per Tickets", "Cost Per Annum"],
+      name: ["L2 Desktop Support" , "Number Of Tickets", "Cost Per Tickets", "Cost Per Annum"],
       data: withAlluvio.L2DesktopSupport
     },
     {
-      name:  ["L3DesktopSupport" , "Number Of Tickets", "Cost Per Tickets", "Cost Per Annum"],
+      name:  ["L3 Desktop Support" , "Number Of Tickets", "Cost Per Tickets", "Cost Per Annum"],
       data: withAlluvio.L3DesktopSupport
     },
     {
-      name: ["Device Refresh", "Number of Device on 4 Year cylce", "Cost Per Device", "costPerAnnum"],
+      name: ["Device Refresh", "Number of Device on 4 Year cylce", "Cost Per Device", "Cost Per Annum"],
       data: withAlluvio.DeviceRefresh
     },
     {
-      name: ["Software License", "No Of Users", "Cost Of Software", "costPerAnnum"],
+      name: ["Software License", "No Of Users", "Cost Of Software", "Cost Per Annum"],
       data: withAlluvio.softwareLicence
     },
     {
-      name: ["User Productivity", "Wait Time Hrs", "Cost Per Hour", "costPerAnnum"],
+      name: ["User Productivity", "Wait Time Hrs", "Cost Per Hour", "Cost Per Annum"],
       data: withAlluvio.userProductivity
     }
   ]
   const withoutAlluvioFormat = [
     {
-      name: ["L1DesktopSupport" , "Number Of Tickets", "Cost Per Tickets", "Cost Per Annum"],
+      name: ["L1 Desktop Support" , "Number of Tickets", "Cost Per Tickets", "Cost Per Annum"],
       data: withoutAlluvio.L1DesktopSupport
     },
     {
-      name: ["L2DesktopSupport" , "Number Of Tickets", "Cost Per Tickets", "Cost Per Annum"],
+      name: ["L2 Desktop Support" , "Number of Tickets", "Cost Per Tickets", "Cost Per Annum"],
       data: withoutAlluvio.L2DesktopSupport
     },
     {
-      name: ["L3DesktopSupport" , "Number Of Tickets", "Cost Per Tickets", "Cost Per Annum"],
+      name: ["L3 Desktop Support" , "Number of Tickets", "Cost Per Tickets", "Cost Per Annum"],
       data: withoutAlluvio.L3DesktopSupport
     },
     {
-      name: ["Device Refresh", "Number of Device on 4 Year cylce", "Cost Per Device", "costPerAnnum"],
+      name: ["Device Refresh", "Number of Device on 4 Year cylce", "Cost Per Device", "Cost Per Annum"],
       data: withoutAlluvio.DeviceRefresh
     },
     {
-      name: ["Software License", "No Of Users", "Cost Of Software", "costPerAnnum"],
+      name: ["Software License", "No of Users", "Cost Of Software", "Cost Per Annum"],
       data: withoutAlluvio.softwareLicence
     },
     {
-      name: ["User Productivity", "Wait Time Hrs", "Cost Per Hour", "costPerAnnum"],
+      name: ["User Productivity", "Wait Time Hrs", "Cost Per Hour", "Cost Per Annum"],
       data: withoutAlluvio.userProductivity
     }
   ]
   const savingsFormat = Object.keys(savings).map(key => ({
-     name:[key,"Saving Per Annum"],
+     name:[key,"savingperAnnum"],
      data: savings[key]
   }));
   return (

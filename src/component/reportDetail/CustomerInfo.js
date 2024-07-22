@@ -21,8 +21,8 @@ function CustomerInfo({ item, errorName, selectedOptions,handleChangeInput,handl
     licenseTerm: "License Term",
     licensePrice: "License Price",
     addOnPrice: "Add-ons Price",
-    Implementationandtraining: "Implementation and training",
-    residentPs: "Resident ps"
+    Implementationandtraining: "Implementation and Training",
+    residentPs: "Resident Ps"
   };
 
   return (
@@ -99,7 +99,7 @@ function CustomerInfo({ item, errorName, selectedOptions,handleChangeInput,handl
                 </Box>
 
                 <Box width={"calc(33.33% - 10px)"}>
-                  <Typography fontSize="14px" fontWeight={600}>{"Number of employees"}</Typography>
+                  <Typography fontSize="14px" fontWeight={600}>{"Number of Employees"}</Typography>
                   <OutlinedInput
                     error={errorName.numberOfEps}
                     style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "5px" }}

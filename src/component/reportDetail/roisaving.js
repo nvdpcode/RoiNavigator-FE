@@ -17,13 +17,23 @@ function createData(
   return { name, calories, fat, carbs, protein };
 }
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-
-];
+const titleNames={
+  L1DesktopSupport:"L1 Desktop Support",
+  L2DesktopSupport:"L2 Desktop Support",
+  L3DesktopSupport: "L3 Desktop Support",
+  DeviceRefresh:"Device Refresh",
+  softwareLicence	: "software Licence",
+  userProductivity: "User Productivity",
+  savingperAnnum:"Saving Per Annum"
+}
 
 function Roisaving({savings}) {
+  const getValidDate=(date)=>{
+    let dates = new Date(date);
+    const month = dates.toLocaleString('en-us', { month: 'short' });
+    const year = dates.getFullYear();
+    return `${month} ${year}`
+  }
     return (
       <Box style={{ display:"flex",width:'80%',border:"1px solid rgb(247 247 247)"}}>
       <TableContainer style={{borderRadius:"0px",boxShadow:"1px 1px 1px -1px"}} component={Paper}>
@@ -32,7 +42,7 @@ function Roisaving({savings}) {
             <TableRow style={{backgroundColor:"#efefef"}}>
               {
                 savings.name.map((title)=>(
-                  <TableCell align="center" sx={{ borderBottom: 'none',minWidth:"92px",fontSize:"11px",padding:"6px",minWidth:"92px" }}>{title}</TableCell>
+                  <TableCell align="center" sx={{ borderBottom: 'none',minWidth:"92px",fontSize:"11px",padding:"6px",minWidth:"92px" }}>{titleNames[title]}</TableCell>
                 ))
               }
             </TableRow>
@@ -44,7 +54,7 @@ function Roisaving({savings}) {
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                   {row.date && (
-                  <TableCell align="center"  sx={{ borderBottom: 'none', fontSize: "11px", padding: "6px" }}>{row.date}</TableCell>
+                  <TableCell align="center"  sx={{ borderBottom: 'none', fontSize: "11px", padding: "6px" }}>{getValidDate(row.date)}</TableCell>
                 )}
                  {(row.savingsPerAnnum || row.savingsPerAnnum==0) && (
                   <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px", padding: "6px" }}>{row.savingsPerAnnum}</TableCell>
