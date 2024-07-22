@@ -93,7 +93,6 @@ function PhaseDeleviry({PhaseDel, selectedOptions,handleChange,handleChangeInput
                         name={"desktop"}
                         error={isNaN(Object.values(selectedOptions[item])[0]) ?? false}
                         onChange={(e) => handleChangeInput(e, item)}
-                        startAdornment={<InputAdornment position="start">$</InputAdornment>}
                         inputProps={{
                           'aria-label': 'weight',
                         }}

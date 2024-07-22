@@ -71,7 +71,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
                         name={"desktop"}
                         // value={inputsdata[inputName] || ""}
                         onChange={(e) => handleChangeInput(e, item,"reductionInMTR")}
-                        startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                        startAdornment={<InputAdornment position="start">%</InputAdornment>}
                         inputProps={{
                           'aria-label': 'weight',
                         }}
@@ -111,7 +111,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
                         style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                         name={"desktop"}
                         onChange={(e) => handleChangeInput(e, item,"reductionInDesktopSupportTickets")}
-                        startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                        startAdornment={<InputAdornment position="start">%</InputAdornment>}
                         inputProps={{
                           'aria-label': 'weight',
                         }}
@@ -149,7 +149,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
                      name={"desktop"}
                      // value={inputsdata[inputName] || ""}
                      onChange={(e) => handleChangeInput(e, 'firstYear',"reductionInRefresh")}
-                     startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                     startAdornment={<InputAdornment position="start">%</InputAdornment>}
                      inputProps={{
                        'aria-label': 'weight',
                      }}
@@ -186,7 +186,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
                         name={"desktop"}
                         // value={inputsdata[inputName] || ""}
                         onChange={(e) => handleChangeInput(e, 'firstYear',"reductionInWaitTime")}
-                        startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                        startAdornment={<InputAdornment position="start">%</InputAdornment>}
                         inputProps={{
                           'aria-label': 'weight',
                         }}
@@ -222,7 +222,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
                      name={"desktop"}
                      // value={inputsdata[inputName] || ""}
                      onChange={(e) => handleChangeInput(e, 'firstYear',"reductionInWaitTime")}
-                     startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                     startAdornment={<InputAdornment position="start">%</InputAdornment>}
                      inputProps={{
                        'aria-label': 'weight',
                      }}

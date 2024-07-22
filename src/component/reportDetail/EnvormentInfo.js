@@ -82,7 +82,7 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
                         style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                         name={"desktop"}
                         onChange={(e) => handleChangeInput(e, item)}
-                        startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                        startAdornment={<InputAdornment position="start">{(index==0 || index==1 || index==2) ? "$":""}</InputAdornment>}
                         inputProps={{
                           'aria-label': 'weight',
                         }}
@@ -156,7 +156,7 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
                     error={isNaN(Object.values(selectedOptions[item])[0]) ?? false}
                     style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                     onChange={(e) => handleChangeInput(e, item)}
-                    startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                    startAdornment={<InputAdornment position="start">{item=="deviceRefresh" ?"":"$"}</InputAdornment>}
                     inputProps={{
                       'aria-label': 'weight',
                       
@@ -192,7 +192,7 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
                     error={isNaN(Object.values(selectedOptions["costPerUser"])[0]) ?? false}
                     style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                     onChange={(e) => handleChangeInput(e, "costPerUser")}
-                    startAdornment={<InputAdornment position="start">%</InputAdornment>}
+                    startAdornment={<InputAdornment position="start">$</InputAdornment>}
                     inputProps={{
                       'aria-label': 'weight',
                     }}

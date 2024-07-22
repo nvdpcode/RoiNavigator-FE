@@ -460,7 +460,6 @@ function CreateRoiCom() {
       }));}
     }
   };
-  console.log(windowSize,"screenSize")
   return (
     <div>
       <TemporaryDrawer />
