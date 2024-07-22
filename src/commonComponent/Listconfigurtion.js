@@ -7,14 +7,14 @@ function Listconfigurtion(props) {
   const { configName,onDescriptionChange,onValueChange} = props
 
  let DescriptionTitle={
-     high: "Description(high)",
-     medium: "Description(medium)",
-     low: "Description(low)",
+     high: "Description (high)",
+     medium: "Description (medium)",
+     low: "Description (low)",
  }
  let ValuesTitle={
-  high: "Values(high)",
-  medium: "Values(medium)",
-  low: "Values(low)",
+  high: "Values (high)",
+  medium: "Values (medium)",
+  low: "Values (low)",
 }
   return (
     <div>

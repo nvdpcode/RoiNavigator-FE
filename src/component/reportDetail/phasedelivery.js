@@ -24,7 +24,7 @@ function PhaseDeleviry({PhaseDel, selectedOptions,handleChange,handleChangeInput
     <div >      
     <div style={{ display: "flex",width:"83%", marginTop: "-20px", justifyContent: "space-between", alignSelf: "center", marginLeft: "72px" }}>
     <Typography style={{ color: "#e10098", fontSize: "22px",fontWeight:"600" }}>Phase Delivery</Typography>
-      <span style={{ display:"flex",width:"30%",marginRight:"-134px"}}>
+      {/* <span style={{ display:"flex",width:"30%",marginRight:"-134px"}}>
        <Typography>Assumptions</Typography>
        <Box width={"calc(50% - 10px)"}>
             <Select
@@ -40,7 +40,7 @@ function PhaseDeleviry({PhaseDel, selectedOptions,handleChange,handleChangeInput
                <MenuItem value={"industryHigh"}>Industry High</MenuItem>
               </Select>
         </Box>
-      </span>
+      </span> */}
       </div>
       <Container style={{
         backgroundColor: "red",
