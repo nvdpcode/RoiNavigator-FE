@@ -292,6 +292,9 @@ function CreateRoiCom() {
   if(steps==1 || steps==3){
     Object.keys(selectedOptions).forEach((item) => {
       const value = Object.values(selectedOptions[item])
+     if(["desktopSupportTicketPerc" ,"avgTimeSpentonPc", "waitTime"].includes(item) && value > 100){
+          isValid = false
+      }
       if (isNaN(...value)) {
         isValid = false;
       }
@@ -300,9 +303,10 @@ function CreateRoiCom() {
   if(steps==2){
     Object.keys(AdditionalOptions).forEach((key) => {
       Object.keys(AdditionalOptions[key]).forEach((subKey) => {
-        const industryLowValue = Object.values(AdditionalOptions[key][subKey])
-        if (isNaN(...industryLowValue)) { 
+        const IndustryValue = Object.values(AdditionalOptions[key][subKey])    
+        if (isNaN(...IndustryValue) || IndustryValue[0] > 100 ) {
           isValid = false;
+          return;
         }
       });
     });

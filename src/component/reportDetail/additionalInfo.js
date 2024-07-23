@@ -16,8 +16,8 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
     "reductionInWaitTime": "Reduction in Wait Time",
     "firstYear": "First Year",
     "subsYear": "Subsequent Years"
-  }
-;
+  };
+
   return (
     <div>
       <Container style={{
@@ -67,7 +67,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
                       Object.keys(AdditionalOptions["reductionInMTR"][item]) == "manual" &&
                       <OutlinedInput 
                         defaultValue={Object.values(AdditionalOptions["reductionInMTR"][item])}
-                        error={isNaN(Object.values(AdditionalOptions["reductionInMTR"][item]))}
+                        error={(isNaN(Object.values(AdditionalOptions["reductionInMTR"][item])) || Object.values(AdditionalOptions["reductionInMTR"][item])>100)}
                         style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                         name={"desktop"}
                         // value={inputsdata[inputName] || ""}
@@ -108,8 +108,8 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
                     {
                       Object.keys(AdditionalOptions["reductionInDesktopSupportTickets"][item])=="manual" &&
                       <OutlinedInput
-                        defaultValue={Object.values(AdditionalOptions["reductionInDesktopSupportTickets"][item])}
-                        error={isNaN(Object.values(AdditionalOptions["reductionInDesktopSupportTickets"][item]))}
+                        defaultValue={Object.values(AdditionalOptions["reductionInDesktopSupportTickets"][item])  }
+                        error={isNaN(Object.values(AdditionalOptions["reductionInDesktopSupportTickets"][item])) || Object.values(AdditionalOptions["reductionInDesktopSupportTickets"][item])>100 }
                         style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                         name={"desktop"}
                         onChange={(e) => handleChangeInput(e, item,"reductionInDesktopSupportTickets")}
@@ -146,8 +146,8 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
              {
                   Object.keys(AdditionalOptions["reductionInRefresh"]["firstYear"])=="manual" &&
                    <OutlinedInput
-                     defaultValue={Object.values(AdditionalOptions["reductionInRefresh"]['firstYear'])}
-                     error={isNaN(Object.values(AdditionalOptions["reductionInRefresh"]["firstYear"]))}
+                     defaultValue={(Object.values(AdditionalOptions["reductionInRefresh"]['firstYear']) || Object.values(AdditionalOptions["reductionInRefresh"]['firstYear'])>100)}
+                     error={(isNaN(Object.values(AdditionalOptions["reductionInRefresh"]["firstYear"]))||Object.values(AdditionalOptions["reductionInRefresh"]['firstYear'])>100)  }
                      style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                      name={"desktop"}
                      // value={inputsdata[inputName] || ""}
@@ -185,7 +185,7 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
                      Object.keys(AdditionalOptions["reductionInSoftware"]["firstYear"])=="manual" &&
                       <OutlinedInput
                         defaultValue={Object.values(AdditionalOptions["reductionInSoftware"]['firstYear'])}
-                        error={isNaN(Object.values(AdditionalOptions["reductionInSoftware"]["firstYear"]))}
+                        error={(isNaN(Object.values(AdditionalOptions["reductionInSoftware"]["firstYear"])) || Object.values(AdditionalOptions["reductionInSoftware"]['firstYear'])>100)}
                         style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                         name={"desktop"}
                         // value={inputsdata[inputName] || ""}
@@ -222,7 +222,8 @@ function AdditionalInfo({ Addtionalprops, AdditionalOptions, setAdditionalOption
              {
                   Object.keys(AdditionalOptions["reductionInWaitTime"]["firstYear"])=="manual" &&
                    <OutlinedInput
-                     defaultValue={Object.values(AdditionalOptions["reductionInWaitTime"]["firstYear"])}
+                   error={(isNaN(Object.values(AdditionalOptions["reductionInWaitTime"]["firstYear"])) || Object.values(AdditionalOptions["reductionInWaitTime"]['firstYear'])>100)}
+                   defaultValue={Object.values(AdditionalOptions["reductionInWaitTime"]["firstYear"])}
                      style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                      name={"desktop"}
                      // value={inputsdata[inputName] || ""}

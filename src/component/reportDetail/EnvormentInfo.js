@@ -85,7 +85,7 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
                         onChange={(e) => handleChangeInput(e, item)}
                         startAdornment={<InputAdornment position="start">{(index==0 || index==1 || index==2) ? "$":""}</InputAdornment>}
                         inputProps={{
-                          'aria-label': 'weight',
+                          'aria-label': 'weight'
                         }}
                       />
                     }
@@ -114,17 +114,21 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
                     );
                   })}
                 </Select>
+              
                 {
+                  
                   envprops.name === "Desktop Support" && Object.keys(selectedOptions["desktopSupportTicketPerc"])[0] == "manual" &&
                   <OutlinedInput
-                    defaultValue={Object.values(selectedOptions["desktopSupportTicketPerc"])[0]}
-                    error={isNaN(Object.values(selectedOptions["desktopSupportTicketPerc"])[0]) ?? false}
+                    defaultValue={Object.values(selectedOptions["desktopSupportTicketPerc"])[0] }
+                    error={(isNaN(Object.values(selectedOptions["desktopSupportTicketPerc"])[0]) || Object.values(selectedOptions["desktopSupportTicketPerc"])[0] > 100) ?? false}
                     style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                     onChange={(e) => handleChangeInput(e, "desktopSupportTicketPerc")}
                     startAdornment={<InputAdornment position="start">%</InputAdornment>}
                     inputProps={{
                       'aria-label': 'weight',
+                       "max":100
                     }}
+                  
                   />
                   
                 }
@@ -162,7 +166,7 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
                     startAdornment={<InputAdornment position="start">{item=="deviceRefresh" ?"":"$"}</InputAdornment>}
                     inputProps={{
                       'aria-label': 'weight',
-                      
+                      "max":100
                     }}
                   />
                 }
@@ -227,10 +231,10 @@ function EnvoermentInfo({ envprops, handleChange, manual, selectedOptions ,handl
                       })}
                     </Select>
                     {
-                  envprops.name === "Productivity" && Object.keys(selectedOptions[item])[0] == "manual" &&
+                     envprops.name === "Productivity" && Object.keys(selectedOptions[item])[0] == "manual" &&
                   <OutlinedInput
-                    defaultValue={Object.values(selectedOptions["costPerUser"])[0]}
-                    error={isNaN(Object.values(selectedOptions[item])[0]) ?? false}
+                    defaultValue={Object.values(selectedOptions[item])[0]}
+                    error={(isNaN(Object.values(selectedOptions[item])[0]) || (index!=1 && Object.values(selectedOptions[item])[0] > 100))  ?? false}
                     style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}              
                     onChange={(e) => handleChangeInput(e, item)}
                     startAdornment={<InputAdornment position="start">{index==1 ? `$` : `%`}</InputAdornment>}
