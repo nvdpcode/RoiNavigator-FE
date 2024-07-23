@@ -208,13 +208,12 @@ function CustomerInfo({ item, errorName, selectedOptions,handleChangeInput,handl
                   <Box width={"calc(33.33% - 10px)"} key={inputName}>
                     <Typography fontSize="14px" fontWeight={600}>{LicenseNames[inputName]}</Typography>
                     <OutlinedInput
-                      error={errorName[inputName] || typeof(inputsdata[inputName]) != "string"}
+                      error={errorName[inputName] || isNaN(inputsdata[inputName])}
                       style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginBottom: "5px" }}
                       id={`outlined-adornment-${inputName}`}
                       name={inputName}
                       value={inputsdata[inputName] || ""}
                       onChange={handleInputChange}
-                      type="number"
                       startAdornment={<InputAdornment position="start">$</InputAdornment>}
                       placeholder={`Enter ${LicenseNames[inputName]}`}
                       onWheel={handleWheel}

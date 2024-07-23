@@ -266,7 +266,9 @@ function CreateRoiCom() {
       'customerName',
       'contactName',
       "roiName",
-      'numberOfEps'
+      'numberOfEps',
+      "addOnPrice",
+      "residentPs"
     ];
   
     const regex = /^[A-Za-z]+$/;
@@ -580,6 +582,7 @@ function CreateRoiCom() {
             {
               steps == 4 &&
               <CalculateSaving setToaster={setToaster} />
+              
             }
   
         {

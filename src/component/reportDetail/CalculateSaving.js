@@ -6,6 +6,7 @@ import { calculationdata } from './calculation';
 import Axois from 'axios'
 import Genrateroi from './genrateRoi';
 import { dataNotFoundImage } from '../../assets/assets';
+import Spacer from '../../commonComponent/spacer';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -109,7 +110,7 @@ function CalculateSaving({setToaster}) {
     <>
       {
         isLoading ?
-          <div style={{display:"flex",justifyContent:"center",marginTop:"64px"}}>
+          <div style={{display:"flex",justifyContent:"center",marginTop:"100px"}}>
             <img src={dataNotFoundImage} width="92px"></img>
           </div>
           :
@@ -160,7 +161,9 @@ function CalculateSaving({setToaster}) {
                 })}
               </>
             }
-          
+          {isLoading &&
+          <Spacer height={220}/>
+          }
           </div>
       }
     </>
