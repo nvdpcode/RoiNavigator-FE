@@ -265,6 +265,7 @@ function CreateRoiCom() {
       'licensePrice',
       'customerName',
       'contactName',
+      "roiName",
       'numberOfEps'
     ];
   
