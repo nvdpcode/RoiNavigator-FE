@@ -195,6 +195,7 @@ function CustomerInfo({ item, errorName, selectedOptions,handleChangeInput,handl
                    Object.keys(selectedOptions["licenceTerm"]) == "manual" &&
                   <OutlinedInput
                     defaultValue={Object.values(selectedOptions["licenceTerm"])[0]}
+                    error={(isNaN(Object.values(selectedOptions["licenceTerm"])[0])|| Object.values(selectedOptions["licenceTerm"])[0]>100)}
                     style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "12px" }}
                     onChange={(e) => handleChangeInput(e, "licenceTerm")}
                     startAdornment={<InputAdornment position="start">%</InputAdornment>}
