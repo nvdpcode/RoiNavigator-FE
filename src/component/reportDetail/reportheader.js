@@ -3,7 +3,7 @@ import { Box,  Typography, MenuItem, Select } from '@mui/material';
 
 function Reportheader({windowSize,handleChange,mainSelectedValue,Assumptions,headingName}) {
   return ( 
-    <div style={{ display: "flex",width:"97%", marginTop: "-20px", justifyContent: "space-between", alignSelf: "center", marginLeft: windowSize && windowSize?.current[0]>1327 ? "11%" :"4%" }}>
+    <div style={{ display: "flex",width:"97%", marginTop: "-20px", justifyContent: "space-between", alignSelf: "center", marginLeft: windowSize && windowSize?.current[0]>1370 ? "11%" :"4%" }}>
     <Typography style={{ color: "#e10098", fontSize: "22px",fontWeight:"600" }}>{headingName}</Typography>
    {/* {
    Assumptions &&
