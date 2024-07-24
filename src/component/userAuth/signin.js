@@ -48,14 +48,14 @@ export default function SignIn(props) {
 
   function validation(data) {
     if (data.get('email') == '' && data.get('password') == '') {
-      toast("please fill email or password")
+      toast("Please fill email or password")
     }
     else if (data.get('email') !== userLogin.userEmail) {
-      toast("please fill valid email")
+      toast("Please fill valid email")
       return false
     }
     else if (data.get('password') !== userLogin.password) {
-      toast("please enter valid password")
+      toast("Please enter valid password")
       return false
     }
     else {
