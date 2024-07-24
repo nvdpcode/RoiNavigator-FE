@@ -10,5 +10,6 @@ import GenrateRoiImage from "../assets/lightbulb.png"
 import CalculateSavingImage from "../assets/saving-plan.png"
 import ConfigurationImage from "../assets/settings.png"
 import dataNotFoundImage from "../assets/dataNotFound.png"
+import logoutImage from "../assets/logout.png"
 
-export { wallImage, secondImage, buildingImage, dashboardImage, downloadImage, MenuImage, calculatorImage,MultiUserImage,GenrateRoiImage,CalculateSavingImage,ConfigurationImage ,dataNotFoundImage}
+export { logoutImage,wallImage, secondImage, buildingImage, dashboardImage, downloadImage, MenuImage, calculatorImage,MultiUserImage,GenrateRoiImage,CalculateSavingImage,ConfigurationImage ,dataNotFoundImage}

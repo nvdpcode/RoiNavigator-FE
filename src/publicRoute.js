@@ -1,11 +1,14 @@
 import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import SignIn from './component/userAuth/signin'
 
-function publicRoute() {
+function PublicRoute({setUserloggedIn}) {
   return (
-    <div>
-      
-    </div>
+    <Routes>
+      <Route path="/" element={<SignIn setUserloggedIn={setUserloggedIn} />}/>
+      </Routes>
+
   )
 }
 
-export default publicRoute
+export default PublicRoute

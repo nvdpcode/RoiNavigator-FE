@@ -192,7 +192,7 @@ function CustomerInfo({ item, errorName, selectedOptions,handleChangeInput,handl
                       })}
                   </Select>
                   {
-                   Object.keys(selectedOptions["licenceTerm"]) == "manual" &&
+                  Object.keys(selectedOptions["licenceTerm"]) == "manual" &&
                   <OutlinedInput
                     defaultValue={Object.values(selectedOptions["licenceTerm"])[0]}
                     error={(isNaN(Object.values(selectedOptions["licenceTerm"])[0])|| Object.values(selectedOptions["licenceTerm"])[0]>100)}

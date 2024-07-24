@@ -19,11 +19,14 @@ import { buildingImage } from '../../assets/assets';
 import "./singin.css"
 import Spacer from '../../commonComponent/spacer';
 import "../userAuth/singin.css"
+import { useDispatch } from 'react-redux';
+import { drawerAction, loginAction } from '../Home/actions/actions';
 
 const defaultTheme = createTheme();
 
 export default function SignIn(props) {
-  let { singUp } = props
+  let { singUp , setUserloggedIn } = props
+  const dispatch = useDispatch()
   const [userLogin, setLoginData] = React.useState({
     userEmail: "pramodchouhan531@gmail.com",
     password: "pass123@"
@@ -35,8 +38,10 @@ export default function SignIn(props) {
 
     data.get('password')
     if (validation(data)) {
-      let userData = JSON.parse(localStorage.getItem("userSingin"))
-      navigation('/RoiEstimates')
+      debugger
+       JSON.stringify(localStorage.setItem("userlogged",true))
+       dispatch(loginAction(true))
+      // navigation('/RoiEstimates')
     }
   };
 
@@ -139,7 +144,7 @@ export default function SignIn(props) {
                 }}
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sing In
+                Sign In
               </Button>
               </Box>
             </Box>

@@ -34,7 +34,7 @@ function Header() {
           <Box 
           style={{display:'flex'}}>
             <Typography
-              onClick={()=>{ navigation('/dashboard')}}
+              onClick={()=>{ navigation('/')}}
             style={{
               color: "white",
               fontWeight: "bold",

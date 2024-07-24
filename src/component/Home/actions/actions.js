@@ -16,4 +16,10 @@ export const drawerAction=(payload)=>({
   payload
 })
 
+export const  loginAction=(payload)=>({
+  type:'LOGIN_DATA',
+  payload
+})
 
+
+  

@@ -110,9 +110,12 @@ function CalculateSaving({setToaster}) {
     <>
       {
         isLoading ?
+        <>
           <div style={{display:"flex",justifyContent:"center",marginTop:"100px"}}>
             <img src={dataNotFoundImage} width="92px"></img>
           </div>
+           <Spacer height={180}/>
+        </>
           :
           <div style={{ display: "flex", alignItems: "center", flexDirection: "column", gap: "12px", width: "100%", marginTop: "50px" }}>
             <div style={{ display: 'flex', flexDirection: "row", gap: "10px", width: "80%" }}>
@@ -161,10 +164,8 @@ function CalculateSaving({setToaster}) {
                 })}
               </>
             }
-          {isLoading &&
-          <Spacer height={220}/>
-          }
           </div>
+          
       }
     </>
   )

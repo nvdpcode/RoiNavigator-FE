@@ -2,7 +2,9 @@ import { INPUT_DATA } from "../actions/actions";
 import { SET_FORM_DATA, UPDATE_INPUT } from '../actions/actions';
 
 const initialState1 = {
-     Drawer:false
+     Drawer:false,
+     userLogin:false
+
   };
 
 const initialState = {
@@ -31,6 +33,11 @@ export const HomeReducer = (state = initialState1, action) => {
         ...state,
         Drawer: action.payload,
       };
+      case "LOGIN_DATA":
+        return {
+          ...state,
+          userLogin: action.payload,
+        };
       default:
         return state;
     }

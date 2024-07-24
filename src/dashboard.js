@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from './commonComponent/header'
 import TemporaryDrawer from './commonComponent/Drawer'
 // import LineChartComponent from './commonComponent/lineChart'
@@ -12,6 +12,7 @@ import DashboardTable from './component/dashboard/dashboardTable';
 import { MenuImage, calculatorImage, MultiUserImage } from './assets/assets';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { useNavigate } from 'react-router-dom';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -63,8 +64,7 @@ function Dashboard() {
       ? '0px 4px 8px rgba(0, 0, 0, 0.5)'
       : '0px 2px 4px rgba(0, 0, 0, 0.1)' 
   };
-  
-const downloadPDF = (pdfId) => {
+  const downloadPDF = (pdfId) => {
   const input = document.getElementById(pdfId);
   html2canvas(input, { scrollY: -window.scrollY }).then((canvas) => {
     const imgData = canvas.toDataURL('image/png');
@@ -88,6 +88,7 @@ const downloadPDF = (pdfId) => {
     pdf.save('document.pdf');
   }); 
 };
+const navigation = useNavigate()
 const [hoveredId, setHoveredId] = useState(null);
 
   return (

@@ -28,7 +28,7 @@ export default function SignUp() {
     const data = new FormData(event.currentTarget);
     if(validation(data)){
       // localStorage.setItem("userLogin",JSON.stringify(userLogin))
-      navigation('/dashboard') 
+      navigation('/') 
     }
   };
 
