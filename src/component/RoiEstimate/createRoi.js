@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import Axios from 'axios';
 
 const style = {
   position: 'absolute',
@@ -16,10 +17,22 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal({steps,setSteps,GenrateModal,setGenrateModal}) {
+export default function BasicModal({steps,setSteps,GenrateModal,setGenrateModal,setLoading}) {
   const handleGenrate = () =>{
     setSteps(steps+1)
     setGenrateModal(false); 
+    GenrateRoiApi()
+  }
+  async function GenrateRoiApi(){
+    let roiId = JSON.parse(localStorage.getItem("roiId"))
+    let res = await Axios.post("http://localhost:8000/api/product/calcTimeline",{roiId:roiId})
+    if(res.status==200){
+      setLoading(true)
+     let timeLineRes =  await Axios.post("http://localhost:8000/api/product/roi",{roiId:roiId})
+    if(timeLineRes.status==200){
+      setLoading(false)
+    }
+    }
   }
   const handleClose = () => setGenrateModal(false);
   return (

@@ -62,15 +62,15 @@ function CreateRoiCom() {
     const [AdditionalOptions, setAdditionalOptions] = useState(
       {
         "reductionInMTR": {
-          "subsYear": { "industryLow": 1 },
-          "firstYear": { "industryLow": 1 },
+          "subsYear": { "industryLow": 5 },
+          "firstYear": { "industryLow": 5 },
         },
         "reductionInDesktopSupportTickets": {
-          "subsYear": { "industryLow": 1 },
-          "firstYear": { "industryLow": 1 },
+          "subsYear": { "industryLow": 5 },
+          "firstYear": { "industryLow": 5 },
         },
         "reductionInSoftware": {
-          "firstYear": { "industryLow": 1 },
+          "firstYear": { "industryLow": 0.5 },
         },
         "reductionInRefresh": {
           "firstYear": { "industryLow": 20 },
@@ -585,16 +585,15 @@ function CreateRoiCom() {
               
             }
   
-        {
+         {
               steps == 5&& 
               <>
-              <TimeLineRoi />
+              <TimeLineRoi isLoading={isLoading}  />
               </>
 
             }
-          <BasicModal steps={steps} setSteps={setSteps} GenrateModal={GenrateModal} setGenrateModal={setGenrateModal}/>
+          <BasicModal steps={steps} setSteps={setSteps} GenrateModal={GenrateModal} setGenrateModal={setGenrateModal} setLoading={setLoading}/>
           </>
-      
       }
       </div>
    { steps!==5 &&

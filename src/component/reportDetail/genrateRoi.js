@@ -1,82 +1,52 @@
-import React from 'react';
-import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, styled, tableCellClasses } from '@mui/material';
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: "rgb(78 79 169)",
-    color: theme.palette.common.white,
-    
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 10,
-  },
-}));
+import React, { useEffect, useState } from 'react';
+import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, styled, tableCellClasses } from '@mui/material';
+import Axios from 'axios';
+import Timelinetable from './timeLineTable';
 
 const years = ["Year 0 2022", "Year 1 2023", "Year 2 2024", "Year 3 2025", "Year 4 2026", "Year 5 2027"];
 
 function TimeLineRoi() {
-  return (
-    <div style={{ display: "flex", justifyContent: "center", marginTop: "80px" }}>
-      <Box style={{ display: "flex", width: '88%', border: "1px solid rgb(247 247 247)" }} >
-        <TableContainer style={{ borderRadius: "0px", boxShadow: "1px 1px 1px -1px" }} >
-          <Table sx={{ minWidth: 500 }} aria-label="simple table">
-            <TableHead>
-              <TableRow style={{ backgroundColor: "#efefef" }}>
-                <TableCell align="center" sx={{color:"rgb(78 79 169)",fontWeight:"600", backgroundColor: "white", fontSize: "15px", padding: "6px" }}>Benefit in Positive $</TableCell>
-                {years.map(year => (
-                  <StyledTableCell align='right' key={year}><span style={{width:"52px",display:"flex"}}>{year}</span></StyledTableCell>
-                ))}
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              <TableRow>
-                <TableCell align="start" sx={{ color: "#e10098", fontWeight: "600", fontSize: "14px", padding: "9px" }} colSpan={years.length + 1}>
-                  Digital Workplace Benefits
-                </TableCell>
-              </TableRow>
-              {["Service Desk", "Device Refresh", "Software License", "Sub total"].map((row,index) => (
-               
-                <TableRow
-                  // key={row.name}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                                  <TableCell align="start" sx={{ color: "rgb(78 79 169)", borderBottom: 'none', fontSize: "11px",padding:"8px" }}>{row}</TableCell>
-                                {index !==3 &&
-                                  <>
-                                  <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px",padding:"8px" }}><span style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}><span>$</span><span>244</span></span></TableCell>           
-                                  <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px",padding:"8px" }}><span style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}><span>$</span><span>244</span></span></TableCell>
-                                  <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px",padding:"8px" }}><span style={{}}>--</span></TableCell>
-                                  <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px",padding:"8px" }}><span style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}><span>$</span><span>244</span></span></TableCell>
-                                  <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px",padding:"8px" }}><span style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}><span>$</span><span>244</span></span></TableCell>
-                                  <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px",padding:"8px" }}><span style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}><span>$</span><span>244</span></span></TableCell>
-                                  </>
-                                }
-                </TableRow>
-              ))}
-               <TableRow>
-                <TableCell align="start" sx={{ color: "#e10098", fontWeight: "600", fontSize: "14px", padding: "9px" }} colSpan={years.length + 1}>
-                  Non-Digital Workplace Benefits
-                </TableCell>
-              </TableRow>
-              {["User Productivity","Sub total","Total Benefits"].map((row) => (
-                <TableRow
-                  // key={row.name}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >                 <TableCell align="start" sx={{ color: "rgb(78 79 169)", borderBottom: 'none', fontSize: "11px",padding:"8px" }}>{row}</TableCell>
-                                  <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px",padding:"8px" }}><span style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}><span>$</span><span>244</span></span></TableCell>           
-                                  <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px",padding:"8px" }}><span style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}><span>$</span><span>244</span></span></TableCell>
-                                  <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px",padding:"8px" }}><span style={{}}>--</span></TableCell>
-                                  <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px",padding:"8px" }}><span style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}><span>$</span><span>244</span></span></TableCell>
-                                  <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px",padding:"8px" }}><span style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}><span>$</span><span>244</span></span></TableCell>
-                                  <TableCell align="center" sx={{ borderBottom: 'none', fontSize: "11px",padding:"8px" }}><span style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}><span>$</span><span>244</span></span></TableCell>
+  const [timeLines, setTimeLines] = useState({})
+  const subTitle= ["Digital Workplace Benefits","Non-Digital Workplace Benefits","One-time Technology Costs","Ongoing Technology Costs"]
 
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Box>
-    </div>
+  useEffect(() => {
+    getTimeLines()
+  }, [])
+  async function getTimeLines() {
+    try {
+      let roiId = JSON.parse(localStorage.getItem("roiId"))
+      let res = await Axios.post("http://localhost:8000/api/product/getRoi", { roiId })
+      setTimeLines(res.data)
+    }
+    catch (error) {
+
+    }
+  }
+  console.log(timeLines,"timeslines")
+  return (
+    <>
+     <Timelinetable
+      positiveBenefits
+      profitTitle={"Benefit in Positive $"} 
+      subTitle={subTitle.slice(0,2)}
+      years={years} 
+      timeLines={timeLines}
+      firstRow={timeLines?.digitalWorkspaceBenefits?.serviceDesk}
+      secondRow={timeLines?.digitalWorkspaceBenefits?.softwareLicence}
+      thirdRow={timeLines.nondigitalWorkspaceBenefits?.userProductivity}
+      />
+     {/* <Typography>ROI Cost Projection</Typography> */}
+     <Timelinetable 
+      subTitle={subTitle.slice(2,4)}
+      profitTitle={"Cost in Negative $"}
+      years={years} 
+      timeLines={timeLines}
+      firstRow={timeLines?.oneTimeTechCost?.professionalServices}
+      thirdRow={timeLines?.ongoingTechCost?.professionalServices}
+      fourthRow={timeLines?.ongoingTechCost?.licence}
+      fivth={timeLines?.ongoingTechCost?.addOns}
+      />
+     </>
   );
 }
 
