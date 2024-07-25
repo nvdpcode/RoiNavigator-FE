@@ -57,7 +57,6 @@ const Timelinetable = ({totalBen=[],totalfirst=[], positiveBenefits, years, prof
                   {renderRows(firstRow, positiveBenefits ? 'ServiceDesk' : 'Implementation and Training')}
                   {renderRows(secondRow, 'SoftwareLicence')}
                   {renderRows(totalfirst,"subTotal")}
-                  {renderRows(totalBen,"Total Benifits")}
                 </>
               )}
               {subTitle[1] && (
@@ -70,6 +69,8 @@ const Timelinetable = ({totalBen=[],totalfirst=[], positiveBenefits, years, prof
                   {renderRows(thirdRow, positiveBenefits ? 'User Productivity' : 'Professional Services')}
                   {renderRows(fourthRow, 'Licence')}
                   {renderRows(fivth, 'Add-Ons')}
+                  {renderRows(totalBen,"Total Benifits")}
+
                 </>
               )}
             </TableBody>

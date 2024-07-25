@@ -53,14 +53,16 @@ function sumValues(keys, ...dicts) {
             }
         }
         combinedDict2[key] = {
-            date: dicts[0][key].date,
+            date: dict1[key].date,
             value: combinedValue
         };
     }
 }
 
-const keys = ['Year0', 'Year1', 'Year2', 'Year3', 'Year4', 'Year5'] ;
-sumValues(keys, dict1, dict2, dict3);
+// const keys = ['Year0', 'Year1', 'Year2', 'Year3', 'Year4', 'Year5'] ;
+const keys = dict1 && Object.keys(dict1)
+
+ dict1 && sumValues(keys, dict1, dict2, dict3);
 result2.push(combinedDict2);
   return (
     <>
