@@ -11,7 +11,6 @@ function TimeLineRoi() {
 
   useEffect(() => {
     getTimeLines();
-    sumValues();
   }, [])
   async function getTimeLines() {
     try {
@@ -19,7 +18,6 @@ function TimeLineRoi() {
       let res = await Axios.post("http://localhost:8000/api/product/getRoi", { roiId })
       setTimeLines(res.data);
 
-      sumValues();
     }
     catch (error) {
     }
