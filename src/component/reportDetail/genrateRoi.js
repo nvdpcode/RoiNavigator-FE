@@ -10,16 +10,18 @@ function TimeLineRoi() {
   const subTitle= ["Digital Workplace Benefits","Non-Digital Workplace Benefits","One-time Technology Costs","Ongoing Technology Costs"]
 
   useEffect(() => {
-    getTimeLines()
+    getTimeLines();
+    sumValues();
   }, [])
   async function getTimeLines() {
     try {
       let roiId = JSON.parse(localStorage.getItem("roiId"))
       let res = await Axios.post("http://localhost:8000/api/product/getRoi", { roiId })
-      setTimeLines(res.data)
+      setTimeLines(res.data);
+
+      sumValues();
     }
     catch (error) {
-
     }
   }
   const result = [];
