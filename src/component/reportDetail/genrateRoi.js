@@ -25,6 +25,8 @@ function TimeLineRoi() {
   const result = [];
   const dict1 = timeLines?.digitalWorkspaceBenefits?.serviceDesk[0]
   const dict2 = timeLines?.digitalWorkspaceBenefits?.softwareLicence[0]
+  const dict3 = timeLines?.nondigitalWorkspaceBenefits?.userProductivity[0]
+
   const combinedDict = {};
 
   for (const key in dict1) {
@@ -37,7 +39,29 @@ function TimeLineRoi() {
       }
   }
   result.push(combinedDict);
+
   
+
+const result2 = [];
+const combinedDict2 = {};
+function sumValues(keys, ...dicts) {
+    for (const key of keys) {
+        let combinedValue = 0;
+        for (const dict of dicts) {
+            if (dict && dict[key]) {
+                combinedValue += dict[key].value;
+            }
+        }
+        combinedDict2[key] = {
+            date: dicts[0][key].date,
+            value: combinedValue
+        };
+    }
+}
+
+const keys = ['Year0', 'Year1', 'Year2', 'Year3', 'Year4', 'Year5'] ;
+sumValues(keys, dict1, dict2, dict3);
+result2.push(combinedDict2);
   return (
     <>
      <Timelinetable
@@ -50,6 +74,7 @@ function TimeLineRoi() {
       secondRow={timeLines?.digitalWorkspaceBenefits?.softwareLicence}
       thirdRow={timeLines.nondigitalWorkspaceBenefits?.userProductivity}
       totalfirst={result}
+      totalBen={result2}
       />
      {/* <Typography>ROI Cost Projection</Typography> */}
      <Timelinetable 

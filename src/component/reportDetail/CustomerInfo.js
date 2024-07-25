@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Calendar from '../../commonComponent/calendar';
 
 function CustomerInfo({ item, errorName, selectedOptions,handleChangeInput,handleChange }) {
-  const { inputsdata } = useSelector((state) => state.InputsReducer);
+  const { customerInfoData } = useSelector((state) => state.InputsReducer);
   const dispatch = useDispatch();
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -56,7 +56,7 @@ function CustomerInfo({ item, errorName, selectedOptions,handleChangeInput,handl
                   style={{ width: "100%", height: 36, fontSize: '15px', fontWeight: '600', marginTop: "5px" }}
                   id="outlined-adornment-weight1"
                   name="roiName"
-                  value={inputsdata.roiName}
+                  value={customerInfoData.roiName}
                   onChange={(e)=>handleInputChange(e)}
                   placeholder="Enter ROI Name"
                   inputProps={{
@@ -75,7 +75,7 @@ function CustomerInfo({ item, errorName, selectedOptions,handleChangeInput,handl
                     style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "5px" }}
                     id="outlined-adornment-weight1"
                     name="customerName"
-                    value={inputsdata.customerName}
+                    value={customerInfoData.customerName}
                     onChange={handleInputChange}
                     placeholder="Enter Customer Name"
                
@@ -89,7 +89,7 @@ function CustomerInfo({ item, errorName, selectedOptions,handleChangeInput,handl
                     style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "5px" }}
                     id="outlined-adornment-weight3"
                     name="contactName"
-                    value={inputsdata.contactName}
+                    value={customerInfoData.contactName}
                     onChange={handleInputChange}
                     placeholder="Enter Contact Name"
                     inputProps={{
@@ -105,7 +105,7 @@ function CustomerInfo({ item, errorName, selectedOptions,handleChangeInput,handl
                     style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginTop: "5px" }}
                     id="outlined-adornment-weight4"
                     name="numberOfEps"
-                    value={inputsdata.numberOfEps}
+                    value={customerInfoData.numberOfEps}
                     onChange={handleInputChange}
                     placeholder="Enter Number of Employees"
                     inputProps={{
@@ -209,11 +209,11 @@ function CustomerInfo({ item, errorName, selectedOptions,handleChangeInput,handl
                   <Box width={"calc(33.33% - 10px)"} key={inputName}>
                     <Typography fontSize="14px" fontWeight={600}>{LicenseNames[inputName]}</Typography>
                     <OutlinedInput
-                      error={errorName[inputName] || isNaN(inputsdata[inputName])}
+                      error={errorName[inputName] || isNaN(customerInfoData[inputName])}
                       style={{ width: "100%", height: 37, fontSize: '15px', fontWeight: '600', marginBottom: "5px" }}
                       id={`outlined-adornment-${inputName}`}
                       name={inputName}
-                      value={inputsdata[inputName] || ""}
+                      value={customerInfoData[inputName] || ""}
                       onChange={handleInputChange}
                       startAdornment={<InputAdornment position="start">$</InputAdornment>}
                       placeholder={`Enter ${LicenseNames[inputName]}`}

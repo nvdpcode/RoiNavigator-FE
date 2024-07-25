@@ -13,7 +13,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
-const Timelinetable = ({totalfirst=[], positiveBenefits, years, profitTitle = '', subTitle=[], firstRow = [], secondRow = [], thirdRow = [], fourthRow = [], fivth = [] }) => {
+const Timelinetable = ({totalBen=[],totalfirst=[], positiveBenefits, years, profitTitle = '', subTitle=[], firstRow = [], secondRow = [], thirdRow = [], fourthRow = [], fivth = [] }) => {
   const renderRows = (rows, label) => (
     rows.map((row, index) => (
       <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
@@ -57,6 +57,7 @@ const Timelinetable = ({totalfirst=[], positiveBenefits, years, profitTitle = ''
                   {renderRows(firstRow, positiveBenefits ? 'ServiceDesk' : 'Implementation and Training')}
                   {renderRows(secondRow, 'SoftwareLicence')}
                   {renderRows(totalfirst,"subTotal")}
+                  {renderRows(totalBen,"Total Benifits")}
                 </>
               )}
               {subTitle[1] && (

@@ -8,7 +8,7 @@ const initialState1 = {
   };
 
 const initialState = {
-    inputsdata: {
+    customerInfoData: {
       roiName: '',
       customerName: '',
       contactName: '',
@@ -51,13 +51,13 @@ export const HomeReducer = (state = initialState1, action) => {
       case SET_FORM_DATA:
         return {
           ...state,
-          inputsdata: { ...state.inputsdata, ...action.payload },
+          customerInfoData: { ...state.customerInfoData, ...action.payload },
         };
       case UPDATE_INPUT:
         return {
           ...state,
-          inputsdata: {
-            ...state.inputsdata,
+          customerInfoData: {
+            ...state.customerInfoData,
             [action.payload.name]: action.payload.value,
           },
         };

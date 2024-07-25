@@ -29,7 +29,7 @@ function CreateRoiCom() {
   ]);
   const [isLoading, setLoading] = useState(false)
   const [manual, setManual] = useState(false)
-  const { inputsdata } = useSelector((state) => state.InputsReducer);
+  const { customerInfoData } = useSelector((state) => state.InputsReducer);
   const [mainSelectedValue, setMainSelectValue] = useState("industryLow")
   const [toaster,setToaster] = useState({
     open:false,
@@ -186,17 +186,17 @@ function CreateRoiCom() {
     if (steps == 0) {
       if (checkValidation()) {
         const customerInfo = {
-          name: inputsdata.customerName,
-          contactName: inputsdata.contactName,
-          employees: parseInt(inputsdata.numberOfEps),
+          name: customerInfoData.customerName,
+          contactName: customerInfoData.contactName,
+          employees: parseInt(customerInfoData.numberOfEps),
           eps: (Object.values(selectedOptions["noOfEps"])[0]),
-          date: inputsdata.date,
+          date: customerInfoData.date,
           licenceTerm: (Object.values(selectedOptions["licenceTerm"])[0]),
-          licencePrice: parseInt(inputsdata.licensePrice),
-          addonPrice: parseInt(inputsdata.addOnPrice),
-          impleandTraining: parseInt(inputsdata.Implementationandtraining),
-          residentPs: parseInt(inputsdata.residentPs),
-          roiName: inputsdata.roiName
+          licencePrice: parseInt(customerInfoData.licensePrice),
+          addonPrice: parseInt(customerInfoData.addOnPrice),
+          impleandTraining: parseInt(customerInfoData.Implementationandtraining),
+          residentPs: parseInt(customerInfoData.residentPs),
+          roiName: customerInfoData.roiName
         }
         let url = "http://localhost:8000/api/customer/create"
 
@@ -277,7 +277,7 @@ function CreateRoiCom() {
     const regex = /^[A-Za-z]+$/;
   
     requiredFields.forEach(field => {
-      if (inputsdata[field] === "" && typeof(inputsdata[field]) === "string") {
+      if (customerInfoData[field] === "" && typeof(customerInfoData[field]) === "string") {
         errors[field] = true;
         isValid = false;
         setToaster({
@@ -285,7 +285,7 @@ function CreateRoiCom() {
           massage:"Please Check All Inputs",
           msgSaverity:"error"
         })
-      } else if (['roiName', 'customerName', 'contactName'].includes(field) && !regex.test(inputsdata[field])) {
+      } else if (['roiName', 'customerName', 'contactName'].includes(field) && !regex.test(customerInfoData[field])) {
         errors[field] = true;
         isValid = false;
       } else {
@@ -587,7 +587,7 @@ function CreateRoiCom() {
             {
               steps == 4 &&
               <CalculateSaving setToaster={setToaster} />
-              
+                 
             }
   
          {

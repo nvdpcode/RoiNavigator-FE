@@ -7,18 +7,18 @@ import { updateInput } from "../component/Home/actions/actions";
 
 
 const Calendar = () => {
-  const { inputsdata } = useSelector((state) => state.InputsReducer);
+  const { customerInfoData } = useSelector((state) => state.InputsReducer);
   const dispatch = useDispatch()
   const handleInputChange = (date) => {
     const formattedDate = date ? `${date.getFullYear()}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getDate().toString().padStart(2, '0')}` : null;
     dispatch(updateInput("date", formattedDate));
     
   };
-  let dates = new Date(inputsdata.date)
+  let dates = new Date(customerInfoData.date)
   return (
     <DatePicker 
      showIcon
-     selected={inputsdata.date ? dates : null}
+     selected={customerInfoData.date ? dates : null}
      onChange={(date) => handleInputChange(date)}
     //  dateFormat={"YYYY/MM/DD"}
     
