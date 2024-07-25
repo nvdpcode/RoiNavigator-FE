@@ -23,7 +23,6 @@ export default function TemporaryDrawer() {
     'Industry Configration': <img src={ConfigurationImage} alt="cal" style={{ width: 30, height: 30,marginLeft:"-8px"}} />,
     'logOut': <img src={logoutImage} alt="cal" style={{ width: 30, height: 30,marginLeft:"-8px",marginTop:"10px"}} />,
     // 'Manage Role': <SendIcon sx={{marginLeft:"-12px", fontSize: 36 }} />,
-    // 'Partenrs': <DraftsIcon  sx={{ marginLeft:"-15px", fontSize: 38 }} />
   }
   function callingNav(event){
     let location = event.currentTarget.innerText
