@@ -14,12 +14,18 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const Timelinetable = ({totalBen=[],totalfirst=[], positiveBenefits, years, profitTitle = '', subTitle=[], firstRow = [], secondRow = [], thirdRow = [], fourthRow = [], fivth = [] }) => {
-  const renderRows = (rows, label) => (
+  const renderRows = (rows, label, bold) => (
     rows.map((row, index) => (
       <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
         <TableCell align="start" sx={{ color: "rgb(78 79 169)", borderBottom: 'none', fontSize: "11px", padding: "8px" }}>{label}</TableCell>
         {years.map((year, idx) => (
-          <TableCell key={idx} align="center" sx={{ borderBottom: 'none', fontSize: "11px", padding: "8px" }}>
+          <TableCell align="start" sx={{
+            color: "rgb(78 79 169)",
+            borderBottom: 'none',
+            fontSize: "11px",
+            padding: "8px",
+            fontWeight: (bold === 1) ? 600 : 'normal',
+          }}>
             {row[`Year${idx}`] ? (
               <span style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>    
                 <span>$</span><span>{row[`Year${idx}`].value.toFixed(2)}</span>
@@ -56,7 +62,7 @@ const Timelinetable = ({totalBen=[],totalfirst=[], positiveBenefits, years, prof
                   </TableRow>
                   {renderRows(firstRow, positiveBenefits ? 'ServiceDesk' : 'Implementation and Training')}
                   {renderRows(secondRow, 'SoftwareLicence')}
-                  {renderRows(totalfirst,"subTotal")}
+                  {renderRows(totalfirst,<b>SubTotal</b>, 1)}
                 </>
               )}
               {subTitle[1] && (
@@ -69,7 +75,7 @@ const Timelinetable = ({totalBen=[],totalfirst=[], positiveBenefits, years, prof
                   {renderRows(thirdRow, positiveBenefits ? 'User Productivity' : 'Professional Services')}
                   {renderRows(fourthRow, 'Licence')}
                   {renderRows(fivth, 'Add-Ons')}
-                  {renderRows(totalBen,"Total Benifits")}
+                  {renderRows(totalBen,<b>Total Benifits</b>, 1)}
 
                 </>
               )}
