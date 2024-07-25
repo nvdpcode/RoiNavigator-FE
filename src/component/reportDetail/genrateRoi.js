@@ -22,7 +22,22 @@ function TimeLineRoi() {
 
     }
   }
-  console.log(timeLines,"timeslines")
+  const result = [];
+  const dict1 = timeLines?.digitalWorkspaceBenefits?.serviceDesk[0]
+  const dict2 = timeLines?.digitalWorkspaceBenefits?.softwareLicence[0]
+  const combinedDict = {};
+
+  for (const key in dict1) {
+      if (dict1.hasOwnProperty(key) && dict2.hasOwnProperty(key)) {
+          const combinedValue = dict1[key].value + dict2[key].value;
+          combinedDict[key] = {
+              date: dict1[key].date,
+              value: combinedValue
+          };
+      }
+  }
+  result.push(combinedDict);
+  
   return (
     <>
      <Timelinetable
@@ -34,6 +49,7 @@ function TimeLineRoi() {
       firstRow={timeLines?.digitalWorkspaceBenefits?.serviceDesk}
       secondRow={timeLines?.digitalWorkspaceBenefits?.softwareLicence}
       thirdRow={timeLines.nondigitalWorkspaceBenefits?.userProductivity}
+      totalfirst={result}
       />
      {/* <Typography>ROI Cost Projection</Typography> */}
      <Timelinetable 

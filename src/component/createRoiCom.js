@@ -16,9 +16,12 @@ import Axois from 'axios'
 import Toaster from '../commonComponent/toaster';
 import TimeLineRoi from './reportDetail/genrateRoi';
 import BasicModal from './RoiEstimate/createRoi';
+import { dataNotFoundImage } from '../assets/assets';
+import { useNavigate } from 'react-router-dom';
 
 
 function CreateRoiCom() {
+  const navigation = useNavigate()
   const [steps, setSteps] = useState(0)
   const windowSize = useRef([
     window.innerWidth,
@@ -476,7 +479,9 @@ function CreateRoiCom() {
       <div style={{ overflow: 'auto', overflowX: "hidden", maxHeight: 'calc(100vh - 50px)' }}>      {
         isLoading ?
           <div style={{ display: "flex", height: "100%", justifyContent: "center", marginTop: '100px' }}>
-            <CircularProgress style={{ marginTop: "16%" }} />
+            <div style={{display:"flex",justifyContent:"center",marginTop:"100px"}}>
+            <img src={dataNotFoundImage} width="92px"></img>
+            </div>    
           </div>
           :
           <>
@@ -588,13 +593,13 @@ function CreateRoiCom() {
          {
               steps == 5&& 
               <>
-              <TimeLineRoi isLoading={isLoading}  />
+              <TimeLineRoi />
               </>
 
             }
-          <BasicModal steps={steps} setSteps={setSteps} GenrateModal={GenrateModal} setGenrateModal={setGenrateModal} setLoading={setLoading}/>
           </>
       }
+         <BasicModal steps={steps} setSteps={setSteps} GenrateModal={GenrateModal} setGenrateModal={setGenrateModal} setLoading={setLoading}/>
       </div>
    { steps!==5 &&
      <div style={{ display: "flex", justifyContent: "flex-end", marginRight: "40px", gap: "10px" }}>
@@ -606,8 +611,12 @@ function CreateRoiCom() {
             <Button style={{ height: "24px", width: "104px", fontSize: "11px", backgroundColor: "#584bae", borderRadius: "12px", textTransform: "none" }} variant="contained" disabled={steps == 5 ? true : false} onClick={() => sumbitData()}>Next</Button>
 
         }
+
       </div>
       }
+        {isLoading &&
+        <Button style={{marginLeft:"46%",marginTop:"5%", height: "24px", width: "104px", fontSize: "11px", backgroundColor: "#584bae", borderRadius: "12px", textTransform: "none" }} variant="contained" onClick={()=>{ navigation("/RoiEstimates")}} >Go Back</Button>
+  }
     </div>
   )
 }

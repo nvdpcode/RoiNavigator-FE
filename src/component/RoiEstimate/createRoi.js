@@ -24,6 +24,7 @@ export default function BasicModal({steps,setSteps,GenrateModal,setGenrateModal,
     GenrateRoiApi()
   }
   async function GenrateRoiApi(){
+    try{
     let roiId = JSON.parse(localStorage.getItem("roiId"))
     let res = await Axios.post("http://localhost:8000/api/product/calcTimeline",{roiId:roiId})
     if(res.status==200){
@@ -33,6 +34,9 @@ export default function BasicModal({steps,setSteps,GenrateModal,setGenrateModal,
       setLoading(false)
     }
     }
+  }
+  catch(error){
+  }
   }
   const handleClose = () => setGenrateModal(false);
   return (
