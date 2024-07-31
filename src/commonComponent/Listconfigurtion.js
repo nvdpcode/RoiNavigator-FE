@@ -1,10 +1,10 @@
 import React from 'react'
-import { TextField, Container, Typography, Box, OutlinedInput, InputAdornment } from '@mui/material'
+import { Container, Typography, Box, OutlinedInput, InputAdornment } from '@mui/material'
 import Spacer from './spacer'
 
 function Listconfigurtion(props) {
 
-  const { configName,onDescriptionChange,onValueChange} = props
+ const { configName,onDescriptionChange,onValueChange} = props
 
  let DescriptionTitle={
      high: "Description (high)",

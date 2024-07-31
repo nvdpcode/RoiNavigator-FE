@@ -46,7 +46,7 @@ function CustomerInfo({ item, errorName, selectedOptions,handleChangeInput,handl
         }}>
           <Typography style={{ fontSize: '18px', color: '#4e4fa9', fontWeight: 750, margin: 8 }}>{item.name}</Typography>
         </Box>
-        <Box component="form" onSubmit={() => { }} style={{ width: '100%' }}>
+        <Box component="form" onSubmit={(e) => { e.stopPropagation() }} style={{ width: '100%' }}>
           <Box style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
             {item.name === "ROI" && (
               <Box width={"calc(33.33% - 10px)"}>
@@ -57,12 +57,9 @@ function CustomerInfo({ item, errorName, selectedOptions,handleChangeInput,handl
                   id="outlined-adornment-weight1"
                   name="roiName"
                   value={customerInfoData.roiName}
-                  onChange={(e)=>handleInputChange(e)}
+                  onChange={handleInputChange}
                   placeholder="Enter ROI Name"
-                  inputProps={{
-                    'aria-label': 'ROI Name',
-                    'type':"text"
-                  }}
+                 
                 />
               </Box>
             )}
@@ -180,7 +177,6 @@ function CustomerInfo({ item, errorName, selectedOptions,handleChangeInput,handl
                     inputProps={{
                       'aria-label': 'License Term', 
                     }}
-                    
                   > 
                    <MenuItem value={"manual"}>Manual</MenuItem>
                    {item.configLicence.licenceTerm?.map((obj, idx) => {
